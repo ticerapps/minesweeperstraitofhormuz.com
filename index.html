@@ -189,7 +189,7 @@ footer a:hover{text-decoration:underline}
               <h2>Play Small Hands, Small Grid</h2>
               <p>The real game, running in your browser. 115 tiles, 12 mines, first tap always safe. Tap to reveal, hold to flag.</p>
               <button class="play" id="playBtn" type="button">Play now</button>
-              <small>Loads about 35 MB the first time. Works on phones and desktops.</small>
+              <small>Loads about 35 MB the first time. On phones it opens full screen.</small>
             </div>
           </div>
         </div>
@@ -260,6 +260,9 @@ footer a:hover{text-decoration:underline}
 (function(){
   var btn=document.getElementById('playBtn'),frame=document.getElementById('frame'),poster=document.getElementById('poster');
   function start(){
+    // Phones: run the game as its own full-screen page. An iframe on a small
+    // screen fights the browser for touch gestures and address-bar space.
+    if(window.innerWidth<700||window.matchMedia('(pointer: coarse)').matches&&window.innerWidth<900){location.href='play/';return;}
     if(frame.querySelector('iframe'))return;
     var f=document.createElement('iframe');
     f.src='play/index.html';f.title='Minesweeper: Strait of Hormuz, Small Hands Small Grid';
