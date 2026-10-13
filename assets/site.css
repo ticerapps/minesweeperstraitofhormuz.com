@@ -62,12 +62,13 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 .chord .f{box-shadow:inset 0 0 0 2px var(--flag);color:var(--flag)}
 .chord .c{background:var(--open);color:#e9c35a;position:relative}
 .chord .c::after{content:"";position:absolute;inset:-4px;border:2px solid var(--mint);border-radius:6px;opacity:0;animation:chord-tap 4s infinite}
-.chord .h{animation:chord-open 4s infinite}
-.chord .h.d1{animation-delay:.08s}.chord .h.d2{animation-delay:.16s}.chord .h.d3{animation-delay:.24s}.chord .h.d4{animation-delay:.32s}
+.chord .h{position:relative;overflow:hidden}
+.chord .h::before{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;background:var(--open);color:#eef7f0;border-radius:3px;opacity:0;animation:chord-open 4s infinite}
+.chord .h.d1::before{animation-delay:.08s}.chord .h.d2::before{animation-delay:.16s}.chord .h.d3::before{animation-delay:.24s}.chord .h.d4::before{animation-delay:.32s}
 @keyframes chord-tap{0%,38%{opacity:0;transform:scale(.8)}42%{opacity:1;transform:scale(1)}55%{opacity:0;transform:scale(1.25)}100%{opacity:0}}
-@keyframes chord-open{0%,44%{background:#102b26;color:transparent;box-shadow:inset 0 0 0 2px #2b6a59,inset 3px 3px 4px rgba(159,217,195,.14),inset -3px -3px 4px rgba(0,0,0,.55)}52%,88%{background:var(--open);color:#eef7f0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}100%{background:#102b26;color:transparent}}
+@keyframes chord-open{0%,44%{opacity:0}52%,88%{opacity:1}100%{opacity:0}}
 .chord-cap{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint);margin:0 0 4px}
-@media (prefers-reduced-motion:reduce){.chord .h{animation:none;background:var(--open);color:#eef7f0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}.chord .c::after{animation:none}}
+@media (prefers-reduced-motion:reduce){.chord .h::before{animation:none;opacity:1}.chord .c::after{animation:none}}
 .hud-fig{margin:0;max-width:216px}
 .hud-fig img{border-radius:999px;border:1px solid var(--line);display:block}
 .hud-fig figcaption{font-size:13px}
