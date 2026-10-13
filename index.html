@@ -24,15 +24,17 @@
 <meta name="twitter:image" content="https://minesweeperstraitofhormuz.com/assets/og-image.jpg">
 <meta name="apple-itunes-app" content="app-id=6795665498">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
+<link rel="preload" as="image" href="assets/demo-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "VideoGame",
+      "@type": ["VideoGame", "SoftwareApplication"],
       "@id": "https://minesweeperstraitofhormuz.com/#game",
       "name": "Minesweeper: Strait of Hormuz",
       "alternateName": "Minesweeper Strait of Hormuz",
@@ -49,6 +51,23 @@
       "offers": [
         { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://apps.apple.com/app/id6795665498", "category": "iOS" },
         { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz", "category": "Android" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://minesweeperstraitofhormuz.com/#webpage",
+      "url": "https://minesweeperstraitofhormuz.com/",
+      "name": "Minesweeper: Strait of Hormuz – Play Free Online, iOS and Android",
+      "isPartOf": { "@id": "https://minesweeperstraitofhormuz.com/#website" },
+      "about": { "@id": "https://minesweeperstraitofhormuz.com/#game" },
+      "primaryImageOfPage": "https://minesweeperstraitofhormuz.com/assets/og-image.jpg",
+      "breadcrumb": { "@id": "https://minesweeperstraitofhormuz.com/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://minesweeperstraitofhormuz.com/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/" }
       ]
     },
     {
@@ -104,6 +123,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05;
 
 .hero{padding-block:40px 20px}
 .hero h1{font-size:clamp(40px,7vw,78px);font-weight:700;text-transform:uppercase}
+.h2-inline{font-size:clamp(20px,2.6vw,26px);text-transform:uppercase;letter-spacing:.04em;color:var(--mint);margin:22px 0 4px;grid-column:1/-1}
 .hero p.lead{font-size:clamp(18px,2.4vw,23px);color:var(--mint);margin:14px 0 0;max-width:40ch}
 
 /* game frame */
@@ -185,6 +205,7 @@ footer a:hover{text-decoration:underline}
       <p class="lead">Minesweeper beyond the rectangle. Boards shaped by the channels, coves and islands of the Strait of Hormuz. Play the smallest strait board right here, no download.</p>
 
       <div class="game">
+        <h2 class="h2-inline">Play minesweeper online free</h2>
         <div class="bracket"><i></i>
           <div class="frame" id="frame">
             <div class="poster" id="poster">
@@ -202,6 +223,7 @@ footer a:hover{text-decoration:underline}
       </div>
 
       <div class="cta" id="get">
+        <h2 class="h2-inline">Minesweeper for iPhone and Android</h2>
         <p><b>That's the smallest grid.</b> The full game has four strait boards, classic rectangles at four sizes, a 44-puzzle route, the Daily Sweep and Weekly Operation, ranks, stats, and a board you can dress up. Plays offline.</p>
         <div class="badges">
           <a class="store-badge" href="https://apps.apple.com/app/id6795665498" rel="noopener"><img src="assets/app-store-badge.svg" width="150" height="50" alt="Download on the App Store"></a>
