@@ -4,7 +4,7 @@
 body{margin:0;background:var(--bg);color:var(--cream);font:17px/1.6 var(--body);background-image:linear-gradient(rgba(159,217,195,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(159,217,195,.045) 1px,transparent 1px);background-size:36px 36px}
 a{color:var(--mint)}
 img{max-width:100%;height:auto}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 60px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
 .brand img{width:36px;height:36px;border-radius:8px}
