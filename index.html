@@ -340,6 +340,9 @@ footer a:hover{text-decoration:underline}
   }
   btn.addEventListener('click',start);
   if(location.hash==='#play-now')start();
+  // Until AdSense approves the site its script marks the units done without
+  // requesting an ad, leaving a 280px gap. Collapse slots that never started.
+  setTimeout(function(){document.querySelectorAll('aside.ad').forEach(function(a){var i=a.querySelector('ins.adsbygoogle');if(i&&!i.getAttribute('data-ad-status')&&!i.querySelector('iframe'))a.hidden=true;});},8000);
 })();
 </script>
 </body>
