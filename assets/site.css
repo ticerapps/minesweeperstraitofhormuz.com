@@ -36,15 +36,17 @@ th,td{border-bottom:1px solid var(--line);padding:8px 14px 8px 0;text-align:left
 th{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
 .wide{overflow-x:auto}
 /* mini board illustrations */
-.mini{display:inline-grid;gap:3px;margin:12px 18px 12px 0;vertical-align:top}
+.mini{display:inline-grid;gap:3px;margin:0;vertical-align:top}
 .mini span{width:34px;height:34px;display:grid;place-items:center;font:600 15px var(--mono);border-radius:3px;background:#102b26;box-shadow:inset 0 0 0 2px #2b6a59,inset 3px 3px 4px rgba(159,217,195,.14),inset -3px -3px 4px rgba(0,0,0,.55)}
 .mini .o{background:var(--open);color:#eef7f0}
 .mini .o.n2{color:#bfe8c9}.mini .o.n3{color:#e9c35a}
 .mini .f{box-shadow:inset 0 0 0 2px var(--flag);color:var(--flag)}
 .mini .s{box-shadow:inset 0 0 0 2px var(--mint);color:var(--mint)}
 .mini .x{background:transparent;box-shadow:none}
-.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
-.row p{flex:1 1 280px;margin:0}
+.row{display:grid;grid-template-columns:216px minmax(0,1fr);gap:8px 24px;align-items:start;margin-top:16px}
+.row>p{margin:0;max-width:60ch}
+.row>figure,.row>.mini,.row>div{margin:0;justify-self:start}
+@media (max-width:620px){.row{grid-template-columns:1fr}}
 .related{border-top:1px solid var(--line);margin-top:44px;padding-top:20px}
 .related h2{margin-top:0;font-size:20px}
 .related ul{list-style:none;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
@@ -55,7 +57,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-si
 footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 
 /* section 7: chord animation. The 3 is satisfied by three flags; tapping it opens the rest. */
-.chord{display:inline-grid;grid-template-columns:repeat(3,34px);gap:3px;margin:12px 18px 12px 0;position:relative}
+.chord{display:inline-grid;grid-template-columns:repeat(3,34px);gap:3px;margin:0;position:relative}
 .chord span{width:34px;height:34px;display:grid;place-items:center;font:600 15px var(--mono);border-radius:3px;background:#102b26;box-shadow:inset 0 0 0 2px #2b6a59,inset 3px 3px 4px rgba(159,217,195,.14),inset -3px -3px 4px rgba(0,0,0,.55);color:transparent}
 .chord .f{box-shadow:inset 0 0 0 2px var(--flag);color:var(--flag)}
 .chord .c{background:var(--open);color:#e9c35a;position:relative}
@@ -66,6 +68,6 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 @keyframes chord-open{0%,44%{background:#102b26;color:transparent;box-shadow:inset 0 0 0 2px #2b6a59,inset 3px 3px 4px rgba(159,217,195,.14),inset -3px -3px 4px rgba(0,0,0,.55)}52%,88%{background:var(--open);color:#eef7f0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}100%{background:#102b26;color:transparent}}
 .chord-cap{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint);margin:0 0 4px}
 @media (prefers-reduced-motion:reduce){.chord .h{animation:none;background:var(--open);color:#eef7f0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}.chord .c::after{animation:none}}
-.hud-fig{flex:0 0 auto;margin:0 18px 12px 0;max-width:284px}
+.hud-fig{margin:0;max-width:216px}
 .hud-fig img{border-radius:999px;border:1px solid var(--line);display:block}
 .hud-fig figcaption{font-size:13px}
