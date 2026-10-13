@@ -6,11 +6,12 @@ a{color:var(--mint)}
 img{max-width:100%;height:auto}
 .wrap{max-width:1040px;margin:0 auto;padding:0 16px 60px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+@media (max-width:600px){.nav{display:none}}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
-.brand img{width:36px;height:36px;border-radius:8px}
-.brand b{font-family:var(--display);font-size:16px;line-height:1.1;display:block}
+.brand img{width:40px;height:40px;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.brand b{font-family:var(--display);font-size:17px;line-height:1.1;display:block}
 .brand small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mint);text-transform:uppercase}
-.nav{display:flex;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
+.nav{display:flex;gap:18px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
 .nav a{color:var(--cream);text-decoration:none;opacity:.8}.nav a:hover{opacity:1;color:var(--gold)}
 .crumbs{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint);margin:22px 0 6px}
 .crumbs a{text-decoration:none}

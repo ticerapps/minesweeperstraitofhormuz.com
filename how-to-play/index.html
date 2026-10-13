@@ -19,11 +19,12 @@ a{color:var(--mint)}
 img{max-width:100%;height:auto}
 .wrap{max-width:1040px;margin:0 auto;padding:0 16px 60px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+@media (max-width:600px){.nav{display:none}}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
-.brand img{width:36px;height:36px;border-radius:8px}
-.brand b{font-family:var(--display);font-size:16px;line-height:1.1;display:block}
+.brand img{width:40px;height:40px;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.brand b{font-family:var(--display);font-size:17px;line-height:1.1;display:block}
 .brand small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--mint);text-transform:uppercase}
-.nav{display:flex;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
+.nav{display:flex;gap:18px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
 .nav a{color:var(--cream);text-decoration:none;opacity:.8}.nav a:hover{opacity:1;color:var(--gold)}
 .crumbs{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint);margin:22px 0 6px}
 .crumbs a{text-decoration:none}
@@ -57,7 +58,6 @@ th{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:up
 .mini .s{box-shadow:inset 0 0 0 2px var(--mint);color:var(--mint)}
 .mini .x{background:transparent;box-shadow:none}
 .row{display:grid;grid-template-columns:216px minmax(0,1fr);gap:8px 24px;align-items:start;margin-top:16px}
-.row.tight{grid-template-columns:108px minmax(0,1fr);gap:8px 20px}
 .row>p{margin:0;max-width:60ch}
 .row>figure,.row>.mini,.row>div{margin:0;justify-self:start}
 @media (max-width:620px){.row{grid-template-columns:1fr}}
@@ -93,7 +93,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 <body>
 <div class="wrap">
 <header class="top">
-  <a class="brand" href="../"><img src="../assets/icon-192.png" width="36" height="36" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
+  <a class="brand" href="../"><img src="../assets/icon-192.png" width="40" height="40" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
   <nav class="nav" aria-label="Site"><a href="../#play">Play</a><a href="../#modes">Modes</a><a href="../how-to-play/">How to play</a><a href="../strategy/">Strategy</a><a href="../no-guess-minesweeper/">No-guess</a><a href="../#get">Get the game</a></nav>
 </header>
 <main>
