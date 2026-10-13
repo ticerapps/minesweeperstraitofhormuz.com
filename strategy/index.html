@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minesweeper Strategy – Patterns, Tips and How to Stop Guessing</title>
+<meta name="description" content="Minesweeper strategy guide: the satisfied number, 1-1 on an edge, 1-2-1, 1-2-2-1, corner reads, mine counting and chording, plus what changes on an irregular strait board.">
+<link rel="canonical" href="https://minesweeperstraitofhormuz.com/strategy/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Minesweeper: Strait of Hormuz"><meta property="og:title" content="Minesweeper Strategy – Patterns, Tips and How to Stop Guessing"><meta property="og:description" content="Minesweeper strategy guide: the satisfied number, 1-1 on an edge, 1-2-1, 1-2-2-1, corner reads, mine counting and chording, plus what changes on an irregular strait board."><meta property="og:url" content="https://minesweeperstraitofhormuz.com/strategy/"><meta property="og:image" content="https://minesweeperstraitofhormuz.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="stylesheet" href="../assets/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/"}, {"@type": "ListItem", "position": 2, "name": "Minesweeper strategy and patterns", "item": "https://minesweeperstraitofhormuz.com/strategy/"}]}, {"@type": "Article", "headline": "Minesweeper strategy: the patterns that solve every board", "author": {"@type": "Organization", "name": "Ticerapps"}, "publisher": {"@type": "Organization", "name": "Ticerapps"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12", "mainEntityOfPage": "https://minesweeperstraitofhormuz.com/strategy/", "image": "https://minesweeperstraitofhormuz.com/assets/og-image.jpg"}]}</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/icon-192.png" width="36" height="36" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
+  <nav class="nav" aria-label="Site"><a href="../#play">Play</a><a href="../how-to-play/">How to play</a><a href="../strategy/">Strategy</a><a href="../no-guess-minesweeper/">No-guess</a><a href="../#get">Get the game</a></nav>
+</header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › Minesweeper strategy and patterns</nav>
+<article>
+<h1>Minesweeper strategy and patterns</h1>
+<p class="lead">Eight reads that turn minesweeper from a guessing game into a logic game, and the two ways an irregular strait board changes them.</p>
+
+<div class="rule"></div>
+<p>Every move in minesweeper is one of two things: a deduction you can prove, or a guess. Strategy is the art of never needing the second one. The patterns below are the deductions that come up on every board, in the order you will meet them. Learn to see them without counting and your times fall by half.</p>
+
+<h2>1. The satisfied number</h2>
+<div class="row">
+<div class="mini" style="grid-template-columns:repeat(3,34px)" aria-label="A 1 touching a single hidden tile"><span class="o n1">1</span><span class="o n1">1</span><span class="o n1">1</span><span class="x"></span><span></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span></div>
+<p>A number that touches exactly as many hidden tiles as its value is satisfied: every hidden tile around it is a mine. Flag them. Then look at the neighbours of those flags: any other number they touch may now be satisfied too, which is what starts a chain.</p>
+</div>
+
+<h2>2. The 1-1 on an edge</h2>
+<div class="row">
+<div class="mini" style="grid-template-columns:repeat(4,34px)" aria-label="Two 1s in a row against a wall of hidden tiles"><span class="o n1">1</span><span class="o n1">1</span><span class="o n1">1</span><span class="o n1">1</span><span></span><span></span><span></span><span class="s">✓</span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span></div>
+<p>Two 1s side by side along a straight edge. The left 1 sees two hidden tiles, the right 1 sees three. Whatever mine satisfies the left 1 also satisfies the right 1, because they share two of their hidden tiles. So the right 1's third tile, the one the left cannot see, is safe. This works anywhere two equal numbers overlap and one has exactly one extra hidden neighbour.</p>
+</div>
+
+<h2>3. The 1-2-1</h2>
+<div class="row">
+<div class="mini" style="grid-template-columns:repeat(5,34px)" aria-label="1-2-1 along an edge: mines under both 1s, safe under the 2"><span class="o n1">1</span><span class="o n2">2</span><span class="o n1">1</span><span class="x"></span><span class="x"></span><span class="f">⚑</span><span class="s">✓</span><span class="f">⚑</span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span></div>
+<p>A 1, a 2 and a 1 in a row against hidden tiles. The 2 needs two mines from its three hidden neighbours. If the middle tile were a mine, each 1 would already be satisfied and the 2 could never reach two. So the middle is safe and the two outer tiles are mines. It is the most common pattern in the game, and once you see it you will never count it again.</p>
+</div>
+
+<h2>4. The 1-2-2-1</h2>
+<div class="row">
+<div class="mini" style="grid-template-columns:repeat(6,34px)" aria-label="1-2-2-1: mines under the two 2s, safe under the 1s"><span class="o n1">1</span><span class="o n2">2</span><span class="o n2">2</span><span class="o n1">1</span><span class="x"></span><span class="x"></span><span class="s">✓</span><span class="f">⚑</span><span class="f">⚑</span><span class="s">✓</span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span></div>
+<p>The cousin of the 1-2-1. The mines sit under the two 2s; the tiles under the 1s are safe. Both of these patterns also work when the row is broken by a flag or an edge, as long as the hidden tiles line up the same way.</p>
+</div>
+
+<h2>5. Corners and coves</h2>
+<div class="row">
+<div class="mini" style="grid-template-columns:repeat(3,34px)" aria-label="A 1 in a corner with two hidden tiles"><span class="o n1">1</span><span class="o n1">1</span><span class="x"></span><span></span><span></span><span class="x"></span><span class="x"></span><span class="x"></span><span class="x"></span></div>
+<p>Numbers near the edge see fewer tiles, so they are worth more. A 1 in a corner with two hidden neighbours tells you a mine is in one of exactly two places; combine it with the next number along and it is usually decided. On a strait board, every cove and inlet is a corner. The coastline is where the board gets solved.</p>
+</div>
+
+<h2>6. Count the mines</h2>
+<div class="row">
+<figure class="hud-fig"><img src="../assets/hud-counter.webp" width="284" height="52" alt="The HUD counter: 12 mines left to flag, 0% of safe tiles swept"><figcaption>Top right of the HUD: mines left, then the share of safe tiles swept.</figcaption></figure>
+<p>The counter in the top right is not decoration. Late in a board, when only a handful of tiles remain and the local numbers look ambiguous, subtract your flags from the total. If three tiles are left and one mine is unaccounted for, any number that needs two of them is lying, which means one of your flags is wrong. If the count says zero mines remain, everything left is safe: tap it all.</p>
+</div>
+
+<h2>7. Chord through the easy parts</h2>
+<div class="row">
+<div>
+<p class="chord-cap">3 flags on a 3, then tap the 3</p>
+<div class="chord" aria-label="Animation: a revealed 3 with three flags around it; tapping the 3 opens the five remaining neighbours">
+  <span class="f">⚑</span><span class="h d1">1</span><span class="f">⚑</span>
+  <span class="h d2">2</span><span class="c">3</span><span class="h d3">1</span>
+  <span class="f">⚑</span><span class="h d4">2</span><span class="h d4">1</span>
+</div>
+</div>
+<p>Once a number's flags add up, tapping the number reveals every other tile around it in one move. Done honestly, chording turns a solved region into a cascade of its own. Done with a wrong flag, it ends the game. This is why the game's house rule is <em>flags mean certainty</em>: the shortcut is only fast if the flags are true.</p>
+</div>
+
+<h2>8. Open water first</h2>
+<p>Where you start matters more than people think. A tap in the middle of the widest channel is most likely to land on a zero and cascade. A tap in a narrow inlet gives you one number and nothing to compare it with. Start wide, then work toward the coast where the numbers are worth more.</p>
+
+<h2>What changes on a strait board</h2>
+<p>On a rectangle every interior tile has eight neighbours. On the strait, the coastline cuts the board into channels, and a tile pressed against land might have three or four. That changes the reading in two ways:</p>
+<ul>
+  <li><strong>Numbers near land are stronger.</strong> A 2 with only three hidden neighbours is almost a satisfied number; a 1 with one is already decided. Coves resolve themselves quickly.</li>
+  <li><strong>Narrow passages are chokepoints.</strong> Where a channel pinches to one or two tiles wide, the logic on one side cannot help the other until the pinch is resolved. Resolve the pinch first and the far side opens.</li>
+</ul>
+<p>The habit that pays off most is to sweep the coast early. Open the channel, then run the numbers along the shore, where each one touches so few tiles that most are decided on sight.</p>
+
+<h2>When you truly cannot tell</h2>
+<p>On a board generated with no-guess mode on, you always can; the generator certified that a logical path exists from your opening. If you are stuck, the move you are missing is usually one of the patterns above seen in a rotation you have not learned yet, or a global mine count. If no-guess is off, or you are playing a classic board elsewhere, mark both candidates with question marks, work another region, and come back. Guess only when the board is otherwise finished, and guess the tile that reveals the most information if it is safe.</p>
+<a class="cta" href="../#play">Practise on a strait board</a>
+
+</article>
+<section class="related"><h2>Keep reading</h2><ul><li><a href="../how-to-play/"><b>How to play</b><span>Rules, controls and the first-tap guarantee.</span></a></li><li><a href="../no-guess-minesweeper/"><b>No-guess minesweeper</b><span>What the generator certifies, and the three logic tiers.</span></a></li><li><a href="../#play"><b>Play in your browser</b><span>Small Hands, Small Grid, free, no download.</span></a></li></ul></section>
+</main>
+<footer><div>© 2026 Ticerapps · Minesweeper: Strait of Hormuz</div><nav aria-label="Legal"><a href="../privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="../">Home</a></nav></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No-Guess Minesweeper – How Every Board Is Certified Solvable</title>
+<meta name="description" content="What no-guess minesweeper means, how Minesweeper: Strait of Hormuz generates boards that never need a 50/50, the three logic tiers it certifies against, and why 25% mines is the ceiling.">
+<link rel="canonical" href="https://minesweeperstraitofhormuz.com/no-guess-minesweeper/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Minesweeper: Strait of Hormuz"><meta property="og:title" content="No-Guess Minesweeper – How Every Board Is Certified Solvable"><meta property="og:description" content="What no-guess minesweeper means, how Minesweeper: Strait of Hormuz generates boards that never need a 50/50, the three logic tiers it certifies against, and why 25% mines is the ceiling."><meta property="og:url" content="https://minesweeperstraitofhormuz.com/no-guess-minesweeper/"><meta property="og:image" content="https://minesweeperstraitofhormuz.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon-192.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="stylesheet" href="../assets/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/"}, {"@type": "ListItem", "position": 2, "name": "No-guess minesweeper", "item": "https://minesweeperstraitofhormuz.com/no-guess-minesweeper/"}]}, {"@type": "Article", "headline": "No-guess minesweeper: how a board is certified fair", "author": {"@type": "Organization", "name": "Ticerapps"}, "publisher": {"@type": "Organization", "name": "Ticerapps"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12", "mainEntityOfPage": "https://minesweeperstraitofhormuz.com/no-guess-minesweeper/", "image": "https://minesweeperstraitofhormuz.com/assets/og-image.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is no-guess minesweeper?", "acceptedAnswer": {"@type": "Answer", "text": "A version of minesweeper where every board is checked before play so that a path of pure logic leads from the first tap to the last safe tile. You can still lose by misreading, but never to a 50/50."}}, {"@type": "Question", "name": "Can you still lose in no-guess minesweeper?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A wrong deduction or a wrong flag still detonates a mine. What is removed is the position where no deduction exists."}}]}]}</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/icon-192.png" width="36" height="36" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
+  <nav class="nav" aria-label="Site"><a href="../#play">Play</a><a href="../how-to-play/">How to play</a><a href="../strategy/">Strategy</a><a href="../no-guess-minesweeper/">No-guess</a><a href="../#get">Get the game</a></nav>
+</header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › No-guess minesweeper</nav>
+<article>
+<h1>No-guess minesweeper</h1>
+<p class="lead">Every board in the game is checked before you see it: a path of pure logic exists from your first tap to the last safe tile. Here is how that check works and what it changes.</p>
+
+<div class="rule"></div>
+<p>Classic minesweeper has a dirty secret: some boards cannot be finished by logic. Two tiles share identical evidence, one holds a mine, and the only way through is a coin flip. Players call it the 50/50. It is the reason a careful game can end for no reason at all.</p>
+<p><strong>No-guess minesweeper</strong> removes it. Before you see the board, the game checks that a path of pure logic leads from your first tap to the last safe tile. If there isn't one, it changes the board until there is. You can still lose, by misreading a number or flagging something you have not proven, but you can never lose to luck.</p>
+
+<h2>How the generator works</h2>
+<ol>
+  <li><strong>You tap.</strong> Mines are placed after the first tap, never before. The tapped tile and a small zone around it stay clear, so there is always something to read.</li>
+  <li><strong>A solver plays the board</strong> from that exact opening using only the deductions a human would make. No peeking at mine positions.</li>
+  <li><strong>If the solver stalls</strong>, the generator moves mines so that one of the stuck frontier regions becomes fully safe or fully mined, keeping the total mine count, and replays from the start.</li>
+  <li><strong>The board ships only when a clean pass needs zero fixes.</strong> That pass is your proof that logic alone can clear it.</li>
+</ol>
+
+<h2>Three logic tiers</h2>
+<p>A board is only as fair as the weakest logic that clears it. A puzzle that is "solvable" only by a computer enumerating thousands of mine arrangements is, for a human, a guess. So the solver is deliberately capped at a tier, and the tier rises with difficulty.</p>
+<div class="wide"><table>
+<tr><th>Tier</th><th>What the solver may use</th><th>In human terms</th></tr>
+<tr><td>Patterns</td><td>Visible-number deductions and pairwise subset reasoning, the 1-2 family.</td><td>What every regular player does, the reads on the <a href="../strategy/">strategy page</a>.</td></tr>
+<tr><td>Counting</td><td>Patterns, plus deductions from the global mine count.</td><td>Endgame counting: "two mines left, three tiles, this number needs two of them".</td></tr>
+<tr><td>Deep</td><td>Counting, plus exact enumeration of small frontier regions of up to ten tiles.</td><td>The named advanced patterns. Hard, but something a strong player can do at the table.</td></tr>
+</table></div>
+<p>Easy boards are certified at the Patterns tier, so a beginner is never handed a board that needs endgame counting. Veteran boards may need Deep reads, which is part of what makes them Veteran. What no board ever needs is a frontier-wide exhaustive search, the kind of thing that is technically logical and practically a guess.</p>
+
+<h2>Why 25% is the ceiling</h2>
+<p>Veteran places mines on 25% of the tiles. Above that density the generator has to perturb and replay so many times that the first tap reads as a freeze, especially on the biggest board, Hormuz Closed, with 891 tiles. 25% is the densest setting that stays reliably no-guess on every board without that spike. It is not a round number chosen for marketing; it is where the maths runs out.</p>
+
+<h2>What it feels like to play</h2>
+<p>Mostly, it feels like minesweeper with the frustration removed. Two things change in how you play:</p>
+<ul>
+  <li><strong>"Stuck" means "look harder", not "flip a coin".</strong> There is always a move. It is usually a pattern in a rotation you have not learned, or a mine count you have not done.</li>
+  <li><strong>The hint is honest.</strong> HINT reveals one tile the solver can prove safe from what you can currently see. It costs XP and freezes your time, so it is a tool for learning a read, not a way to speed-run.</li>
+</ul>
+
+<h2>Strait boards and no-guess</h2>
+<p>Irregular boards are harder to certify than rectangles. A coastline creates tiles with three or four neighbours, and narrow channels create frontier regions that cannot talk to each other until a chokepoint resolves. The generator handles this the same way, by replaying from your opening until a clean pass exists, but it is why the solver runs on a flat, index-based model rather than a grid: Hormuz Closed at Veteran would otherwise take several seconds to generate on a phone.</p>
+
+<h2>Try a certified board</h2>
+<p>The browser demo on the <a href="../#play">home page</a> generates every board with no-guess on. If you find a position where you are sure no logical move exists, you have found either a pattern you don't know yet or a bug. Either way, we would like to hear about it: <a href="mailto:ticerapps@gmail.com">ticerapps@gmail.com</a>.</p>
+<a class="cta" href="../#play">Play a no-guess board</a>
+
+</article>
+<section class="related"><h2>Keep reading</h2><ul><li><a href="../how-to-play/"><b>How to play</b><span>Rules, controls and the first-tap guarantee.</span></a></li><li><a href="../strategy/"><b>Strategy and patterns</b><span>1-1, 1-2-1, corners, counting and strait-specific reads.</span></a></li><li><a href="../#play"><b>Play in your browser</b><span>Small Hands, Small Grid, free, no download.</span></a></li></ul></section>
+</main>
+<footer><div>© 2026 Ticerapps · Minesweeper: Strait of Hormuz</div><nav aria-label="Legal"><a href="../privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="../">Home</a></nav></footer>
+</div>
+</body>
+</html>

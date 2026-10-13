@@ -175,6 +175,9 @@ section h2{font-size:clamp(30px,5vw,46px);text-transform:uppercase;margin-top:6p
 .feat img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .feat figcaption b{display:block;font-family:var(--display);font-size:19px;text-transform:uppercase;margin-bottom:3px}
 .feat figcaption{color:#cfd8d2;font-size:16px;line-height:1.45}
+.guides a{display:block;border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:18px 20px;color:#cfd8d2;text-decoration:none;font-size:16px;line-height:1.45}
+.guides a b{display:block;font-family:var(--display);font-size:19px;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
+.guides a:hover b{color:var(--gold)}
 .faq details{border-top:1px solid var(--line);padding:14px 0}
 .faq details:last-child{border-bottom:1px solid var(--line)}
 .faq summary{cursor:pointer;font-family:var(--display);font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:12px}
@@ -195,7 +198,7 @@ footer a:hover{text-decoration:underline}
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#top" aria-label="Minesweeper: Strait of Hormuz home"><img src="assets/icon-192.png" width="40" height="40" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
-    <nav class="nav" aria-label="Page"><a href="#play">Play</a><a href="#modes">Modes</a><a href="#how-to-play">How to play</a><a href="#get">Get the game</a><a href="privacy/">Privacy</a></nav>
+    <nav class="nav" aria-label="Page"><a href="#play">Play</a><a href="#modes">Modes</a><a href="how-to-play/">How to play</a><a href="strategy/">Strategy</a><a href="no-guess-minesweeper/">No-guess</a><a href="#get">Get the game</a></nav>
   </header>
 
   <main id="top">
@@ -255,6 +258,7 @@ footer a:hover{text-decoration:underline}
     <section id="how-to-play">
       <p class="eyebrow">Rules</p>
       <h2>How to play minesweeper on the strait</h2>
+      <p class="sub">The short version. The <a href="how-to-play/">full guide</a> covers controls, cascades and difficulty.</p>
       <div class="prose">
         <p>Minesweeper: Strait of Hormuz uses the classic rules. Every revealed number tells you how many mines touch that tile, counting diagonals. Use the numbers to work out which hidden tiles are safe and which are mines, flag the mines, and reveal every safe tile to clear the board.</p>
         <h3>Controls</h3>
@@ -275,6 +279,16 @@ footer a:hover{text-decoration:underline}
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="2505633934" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </aside>
+
+    <section id="guides">
+      <p class="eyebrow">Guides</p>
+      <h2>Get better at minesweeper</h2>
+      <div class="feat guides">
+        <a href="how-to-play/"><b>How to play</b>Rules, phone and desktop controls, the first-tap guarantee, and what the HUD is telling you.</a>
+        <a href="strategy/"><b>Strategy and patterns</b>The satisfied number, 1-1, 1-2-1, corners, mine counting and chording, plus what changes on a strait board.</a>
+        <a href="no-guess-minesweeper/"><b>No-guess minesweeper</b>How every board is certified solvable by logic alone, and the three logic tiers.</a>
+      </div>
+    </section>
 
     <section class="faq" id="faq">
       <p class="eyebrow">Questions</p>
