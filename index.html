@@ -184,6 +184,13 @@ section h2{font-size:clamp(30px,5vw,46px);text-transform:uppercase;margin-top:6p
 .faq summary::after{content:"+";color:var(--gold);font-family:var(--mono)}
 .faq details[open] summary::after{content:"–"}
 .faq p{margin:10px 0 0;color:#d5ddd8;max-width:70ch}
+.boards{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.boards a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit}
+.boards a:hover,.boards a:focus-visible{border-color:var(--gold);outline:none}
+.boards img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.boards div{padding:12px 14px}
+.boards b{display:block;font-family:var(--display);font-size:18px;color:var(--cream)}
+.boards span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint)}
 .ad{margin:28px auto 0;max-width:980px;min-height:90px}
 .ad ins{margin:0 auto}
 footer{border-top:1px solid var(--line);padding-block:26px 40px;font-size:14px;color:#aebbb4;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -213,7 +220,7 @@ footer a:hover{text-decoration:underline}
           <div class="frame" id="frame">
             <div class="poster" id="poster">
               <h2>Play the strait in your browser</h2>
-              <p>The real game, running in your browser. 115 tiles, 12 mines, first tap always safe. Tap to reveal, hold to flag.</p>
+              <p>The real game, running in your browser. Four strait boards from 115 to 891 tiles, first tap always safe. Tap to reveal, hold to flag.</p>
               <button class="play" id="playBtn" type="button">Play now</button>
               <small>Loads about 35 MB the first time. On phones it opens full screen.</small>
             </div>
@@ -248,12 +255,21 @@ footer a:hover{text-decoration:underline}
       <h2>Every number is a clue.<br>Every flag is a promise.</h2>
       <p class="sub">Four ways to sweep, all with the same rules. The shape of the water changes how the logic flows.</p>
       <div class="feat">
-        <figure><img src="assets/strait-mode.webp" width="560" height="1217" loading="lazy" alt="Strait mode: a minesweeper board laid over the coastline of the Strait of Hormuz, with revealed numbers and orange flags"><figcaption><b>Strait</b>Irregular boards shaped by the strait itself: channels, coves and islands. Same rules, different water. All four are in the browser demo: <a href="play/?board=small-hands">Small Hands</a>, <a href="play/?board=sanctions-season">Sanctions Season</a>, <a href="play/?board=no-mans-strait">No Man's Strait</a> and <a href="play/?board=hormuz-closed">Hormuz Closed</a>.</figcaption></figure>
+        <figure><img src="assets/strait-mode.webp" width="560" height="1217" loading="lazy" alt="Strait mode: a minesweeper board laid over the coastline of the Strait of Hormuz, with revealed numbers and orange flags"><figcaption><b>Strait</b>Irregular boards shaped by the strait itself: channels, coves and islands. Same rules, different water. All four are in the browser demo: <a href="boards/small-hands/">Small Hands</a>, <a href="boards/sanctions-season/">Sanctions Season</a>, <a href="boards/no-mans-strait/">No Man's Strait</a> and <a href="boards/hormuz-closed/">Hormuz Closed</a>.</figcaption></figure>
         <figure><img src="assets/classic-mode.webp" width="560" height="1217" loading="lazy" alt="Classic mode: a rectangular minesweeper board on a walnut frame with a timer and flag counter"><figcaption><b>Classic</b>Rectangular boards with a choice of sizes and mine densities. Chase medals and improve your best times.</figcaption></figure>
         <figure><img src="assets/puzzle-route.webp" width="560" height="1217" loading="lazy" alt="Puzzle mode: a hand-built minesweeper position with a fixed layout"><figcaption><b>Puzzles</b>A 44-waypoint route of hand-built boards. Earn stars and work your way through the campaign.</figcaption></figure>
         <figure><img src="assets/your-loadout.webp" width="560" height="1217" loading="lazy" alt="Customization screen showing tile themes, selectors and backgrounds"><figcaption><b>Your loadout</b>Open care packages, trade up or scrap what you don't want, and dress the board with themes, selectors and backgrounds.</figcaption></figure>
       </div>
     </section>
+
+    <section id="boards">
+      <p class="eyebrow">Playable here</p>
+      <h2>Four strait boards, four difficulties</h2>
+      <p class="sub">Every board has its own page with the game embedded and preselected. Pick a size; the in-game menu switches difficulty.</p>
+      <ul class="boards"><li><a href="boards/small-hands/"><img src="assets/board-small-hands.webp" width="1160" height="725" loading="lazy" alt="Small Hands, Small Grid: a minesweeper board over the Strait of Hormuz coastline"><div><b>Small Hands, Small Grid</b><span>115 tiles · 12–24 mines</span></div></a></li><li><a href="boards/sanctions-season/"><img src="assets/board-sanctions-season.webp" width="1160" height="725" loading="lazy" alt="Sanctions Season: a minesweeper board over the Strait of Hormuz coastline"><div><b>Sanctions Season</b><span>346 tiles · 35–72 mines</span></div></a></li><li><a href="boards/no-mans-strait/"><img src="assets/board-no-mans-strait.webp" width="1160" height="725" loading="lazy" alt="No Man's Strait: a minesweeper board over the Strait of Hormuz coastline"><div><b>No Man's Strait</b><span>615 tiles · 62–129 mines</span></div></a></li><li><a href="boards/hormuz-closed/"><img src="assets/board-hormuz-closed.webp" width="1160" height="725" loading="lazy" alt="Hormuz Closed: a minesweeper board over the Strait of Hormuz coastline"><div><b>Hormuz Closed</b><span>891 tiles · 89–187 mines</span></div></a></li></ul>
+    </section>
+
+    <div class="rule"></div>
 
     <section id="how-to-play">
       <p class="eyebrow">Rules</p>
