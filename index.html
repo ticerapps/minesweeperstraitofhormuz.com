@@ -73,7 +73,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05;
 .bracket::after{right:0;top:0;border-left:0;border-bottom:0}
 .bracket i::before{left:0;bottom:0;border-right:0;border-top:0}
 .bracket i::after{right:0;bottom:0;border-left:0;border-top:0}
-.frame{position:relative;background:var(--bg-deep);border-radius:6px;overflow:hidden;aspect-ratio:16/10;max-width:100%}
+.frame{position:relative;background:var(--bg-deep);border-radius:6px;overflow:hidden;aspect-ratio:750/470;max-width:100%}
 @media (max-width:700px){.frame{aspect-ratio:auto;height:min(78vh,620px)}}
 .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:var(--bg-deep)}
 .poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:center/cover no-repeat url("assets/demo-poster.webp");text-align:center;padding:24px}
@@ -129,7 +129,7 @@ section h2{font-size:clamp(30px,5vw,46px);text-transform:uppercase;margin-top:6p
 .boards{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .boards a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit}
 .boards a:hover,.boards a:focus-visible{border-color:var(--gold);outline:none}
-.boards img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.boards img{display:block;width:100%;height:auto;aspect-ratio:750/470;object-fit:cover}
 .boards div{padding:12px 14px}
 .boards b{display:block;font-family:var(--display);font-size:18px;color:var(--cream)}
 .boards span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint)}
@@ -143,6 +143,14 @@ footer a{color:var(--mint);text-decoration:none}
 footer a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+
+<style id="embed-loading-styles">
+.embed-shell{position:relative;isolation:isolate;overflow:hidden;border-radius:12px;background:#0d2623}.embed-placeholder{position:absolute;inset:0;z-index:2;opacity:1;transition:opacity .25s ease;background:#0d2623}.embed-live{position:absolute;inset:0;z-index:1;opacity:0;pointer-events:none;transition:opacity .25s ease}.embed-shell.is-ready .embed-live{opacity:1;pointer-events:auto}.embed-shell.is-ready .embed-placeholder{opacity:0;pointer-events:none;visibility:hidden;transition:opacity .25s ease,visibility 0s .25s}.embed-shell.is-ready .embed-placeholder *{animation:none}.embed-live iframe{display:block;border:0;max-width:100%;width:100%;height:100%;background:#0d2623}.embed-status{display:flex;align-items:center;gap:7px;font:500 11px/1.4 var(--mono);color:#abc8bb;min-height:16px}.loading-dot{width:6px;height:6px;flex:none;border-radius:50%;background:#e5c46a;animation:embed-pulse 1.2s ease-in-out infinite}.embed-shell.is-unavailable .loading-dot{animation:none;background:#889d92}.placeholder-link{display:inline-block;width:max-content;max-width:100%;padding:9px 12px;border-radius:6px;background:#e5c46a;color:#13291d!important;font:600 13px/1.3 var(--body);text-decoration:none}.itch{min-width:0}.itch-shell{width:100%;max-width:552px;height:167px}.itch-card{display:flex;gap:16px;padding:16px;border:1px solid #315046;border-radius:8px;text-align:left;align-items:center}.itch-card>img{width:112px;height:112px;object-fit:cover;border-radius:6px;flex:none}.itch-card>div{min-width:0;display:grid;gap:6px}.itch-card strong{font:600 19px/1.2 var(--body);color:#9fd9c3}.embed-byline{font-size:12px;color:#abc8bb}.itch-card .embed-status{font-size:10px}.itch-card .placeholder-link{padding:6px 10px;font-size:12px}.youtube-card{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:16px;text-align:center;background:linear-gradient(#08231ce6,#08231ce6),url('/assets/demo-poster.webp') center/cover}.youtube-card strong{font:600 clamp(13px,2vw,21px)/1.3 var(--display);max-width:25ch}.youtube-card>a{font-size:11px}.youtube-card .video-play{width:48px;height:48px;font-size:28px}.youtube-preview .embed-live iframe{position:absolute;inset:0}.tiktok-shell#tiktok-slot{height:494px;min-height:0;background:#fff}.tiktok-shell .embed-live{overflow:auto}.tiktok-shell .embed-live iframe{background:#fff}.tiktok-card{padding:24px;background:#fff;color:#25352d;text-align:left}.profile-heading{display:flex;align-items:center;gap:14px}.profile-heading img{border-radius:50%;flex:none}.profile-heading>div{display:grid;gap:7px;min-width:0}.profile-heading strong{font:600 19px/1.25 var(--body);overflow-wrap:anywhere}.profile-heading span{font-size:14px}.tiktok-card p{font-size:14px!important;line-height:1.5;color:#526358!important;margin:18px 0 12px!important}.tiktok-card .embed-status{color:#62716a}.tiktok-card .loading-dot{background:#6c8c78}.preview-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.preview-tiles i{display:block;aspect-ratio:3/4;border-radius:6px;background:linear-gradient(110deg,#edf0ed 30%,#f8faf8 48%,#edf0ed 66%);background-size:220% 100%;animation:embed-shimmer 1.8s linear infinite}.is-unavailable .preview-tiles i{animation:none}.tiktok-card .placeholder-link{background:#183a2d;color:#fff!important}
+@keyframes embed-pulse{50%{opacity:.3}}@keyframes embed-shimmer{to{background-position:-220% 0}}@media(max-width:580px){.tiktok-shell#tiktok-slot{height:420px}.itch-card{gap:12px;padding:12px}.itch-card>img{width:72px;height:92px;object-fit:contain}.itch-card strong{font-size:15px}.tiktok-card{padding:18px}.profile-heading img{width:48px;height:48px}.profile-heading strong{font-size:16px}.profile-heading span{font-size:12px}.youtube-card{gap:7px}.youtube-card .video-play{width:32px;height:32px;font-size:22px}.youtube-card .embed-status{font-size:9px}}@media(prefers-reduced-motion:reduce){.embed-shell *{animation:none!important;transition:none!important}}
+
+html:not(.js) .embed-status{display:none}
+</style>
+<script defer src="/assets/embeds.js"></script>
 
 <!-- shared-style:start --><script>document.documentElement.classList.add("js");</script><link rel="preload" href="/assets/fonts/hormuz-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/hormuz-body-medium.woff2" as="font" type="font/woff2" crossorigin><style>/* Self-hosted OFL font subsets. Optional display prevents late font swaps. */
 @font-face{font-family:"Hormuz Web Display";src:url('/assets/fonts/hormuz-display.woff2') format('woff2');font-weight:600 700;font-display:optional}
@@ -250,17 +258,12 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
         <h2 class="h2-inline">Play minesweeper online free</h2>
         <div class="bracket"><i></i>
           <div class="frame" id="frame">
-            <div class="poster" id="poster">
-              <h2>Play the strait in your browser</h2>
-              <p>The real game, running in your browser. Four strait boards from 115 to 891 tiles, first tap always safe. Tap to reveal, hold to flag.</p>
-              <button class="play" id="playBtn" type="button">Play now</button>
-              <small>Loads the game files on first play. On phones it opens full screen.</small>
-            </div>
+            <iframe title="Minesweeper: Strait of Hormuz on itch.io" loading="lazy" src="https://itch.io/embed-upload/19741392?color=0d2623" allow="fullscreen; autoplay; gamepad" allowfullscreen width="750" height="470"><a data-destination="itch" href="https://btror.itch.io/minesweeper-strait-of-hormuz">Play Minesweeper: Strait of Hormuz on itch.io</a></iframe>
           </div>
         </div>
         <div class="under">
           <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> flag</span><span><b>Right-click</b> flag</span><span><b>Tap a number</b> clear its neighbours when the flags add up</span></div>
-          <a href="play/" target="_blank" rel="noopener">Open full screen ↗</a>
+          <a href="https://itch.io/embed-upload/19741392?color=0d2623" target="_blank" rel="noopener">Open full screen ↗</a>
         </div>
       </div>
 
@@ -273,7 +276,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
         </div>
         <div class="itch">
           <p>The browser demo is also on <a data-destination="itch" href="https://btror.itch.io/minesweeper-strait-of-hormuz" rel="noopener">itch.io</a>.</p>
-          <button type="button" class="action-secondary" id="loadItch">Load itch.io download widget</button><iframe hidden title="Minesweeper: Strait of Hormuz on itch.io" data-src="https://itch.io/embed/5152045?linkback=true&amp;bg_color=0d2623&amp;fg_color=9fd9c3&amp;link_color=e5c46a&amp;border_color=133d36" width="552" height="167"><a data-destination="itch" href="https://btror.itch.io/minesweeper-strait-of-hormuz">Minesweeper: Strait of Hormuz on itch.io</a></iframe>
+          <div class="embed-shell itch-shell" data-auto-embed="itch" data-src="https://itch.io/embed/5152045?linkback=true&amp;bg_color=0d2623&amp;fg_color=9fd9c3&amp;link_color=e5c46a&amp;border_color=133d36"><div class="embed-placeholder itch-card"><img src="/assets/icon-192.png" width="128" height="128" alt=""><div><strong>Minesweeper: Strait of Hormuz</strong><span class="embed-byline">by btror</span><span class="embed-status" role="status"><span class="loading-dot" aria-hidden="true"></span><span data-loading-status>Loading preview</span></span><a data-destination="itch" class="placeholder-link" href="https://btror.itch.io/minesweeper-strait-of-hormuz" target="_blank" rel="noopener">Play on itch.io ↗</a></div></div><div class="embed-live" aria-hidden="true" inert></div></div>
         </div>
       </div>
     </section>
@@ -349,32 +352,13 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
       <details><summary>Can I play on PC?</summary><p>All four strait boards run in any modern desktop or mobile browser on this page. The full game with classic boards, puzzles and challenges is on Google Play. iPhone and iPad are coming soon.</p></details>
       <details><summary>Does my browser progress carry over to the app?</summary><p>No. The browser board keeps its own small save in your browser. Times, ranks and rewards live in the full game.</p></details>
     </section>
-<section class="social-section" id="from-the-dev"><div><p class="eyebrow">From the developer</p><h2>Small studio.<br>New things to play.</h2><p>Gameplay, puzzle clips and a look at what I’m making next.</p><a class="action-secondary" data-destination="tiktok" href="https://www.tiktok.com/@ticerapps_dev">Follow @ticerapps_dev ↗</a></div><div class="social-media"><div class="youtube-preview" id="youtube-slot"><button type="button" data-load-youtube aria-label="Load YouTube video: Minesweeper Strait of Hormuz"><span class="video-play" aria-hidden="true">▷</span><strong>Minesweeper: Strait of Hormuz</strong><span>Watch on YouTube</span></button></div><p class="embed-notice">Click to load YouTube. <a href="https://www.youtube.com/watch?v=b3fSf2jTIck">Open video on YouTube ↗</a></p><div class="social-preview"><div id="tiktok-slot"></div><button type="button" class="action-primary" data-load-tiktok>Load TikTok preview</button><p class="embed-notice">Loads content from TikTok. TikTok may use cookies and receive device information. <a href="/privacy/#embedded-media">About embedded videos</a></p><a class="social-handle" data-destination="tiktok" href="https://www.tiktok.com/@ticerapps_dev">Open on TikTok ↗</a></div></div></section>
+<section class="social-section" id="from-the-dev"><div><p class="eyebrow">From the developer</p><h2>One guy.<br>Making games.</h2><p>Gameplay, puzzle clips and a look at what I’m making next.</p><a class="action-secondary" data-destination="tiktok" href="https://www.tiktok.com/@ticerapps_dev">Follow @ticerapps_dev ↗</a></div><div class="social-media"><div class="youtube-preview embed-shell" id="youtube-slot" data-auto-embed="youtube"><div class="embed-placeholder youtube-card"><span class="video-play" aria-hidden="true">▷</span><strong>Minesweeper: Strait of Hormuz</strong><span class="embed-status" role="status"><span class="loading-dot" aria-hidden="true"></span><span data-loading-status>Loading preview</span></span><a href="https://www.youtube.com/watch?v=b3fSf2jTIck" target="_blank" rel="noopener">Watch on YouTube ↗</a></div><div class="embed-live" aria-hidden="true" inert></div></div><p class="embed-notice"><a href="https://www.youtube.com/watch?v=b3fSf2jTIck">Watch on YouTube ↗</a></p><div class="social-preview"><div class="embed-shell tiktok-shell" id="tiktok-slot" data-auto-embed="tiktok"><div class="embed-placeholder tiktok-card"><div class="profile-heading"><img src="/assets/tiktok-avatar.jpg" loading="lazy" width="64" height="64" alt=""><div><strong>@ticerapps_dev</strong><span>I make weird games 🎮</span></div></div><p>Gameplay, new projects, and occasional skating.</p><span class="embed-status" role="status"><span class="loading-dot" aria-hidden="true"></span><span data-loading-status>Loading preview</span></span><div class="preview-tiles" aria-hidden="true"><i></i><i></i><i></i></div><a class="placeholder-link" href="https://www.tiktok.com/@ticerapps_dev" target="_blank" rel="noopener">Open TikTok ↗</a></div><div class="embed-live" aria-hidden="true" inert></div></div><a class="social-handle" data-destination="tiktok" href="https://www.tiktok.com/@ticerapps_dev">Open on TikTok ↗</a></div></div></section>
   </main>
 
   <!-- shared-footer:start --><footer class="site-footer"><p>© 2026 Ticerapps<br>Minesweeper: Strait of Hormuz</p><nav aria-label="Footer"><a href="/privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">More from Ticerapps</a><a href="mailto:ticerapps@gmail.com">Support</a><a href="https://www.tiktok.com/@ticerapps_dev" data-destination="tiktok">TikTok ↗</a><button type="button" class="text-button" data-analytics-settings hidden>Analytics choices</button><button type="button" class="text-button" data-ad-choices hidden>Ad privacy choices</button></nav></footer><!-- shared-footer:end -->
 </div>
 <script>
 (function(){
-  var btn=document.getElementById('playBtn'),frame=document.getElementById('frame'),poster=document.getElementById('poster');
-  function start(){
-    // Phones: run the game as its own full-screen page. An iframe on a small
-    // screen fights the browser for touch gestures and address-bar space.
-    // A board picked on this page (?board=...&difficulty=...) rides along to the game.
-    var q=/[?&](board|difficulty)=/.test(location.search)?location.search:'';
-    if(window.innerWidth<700||window.matchMedia('(pointer: coarse)').matches&&window.innerWidth<900){location.href='play/'+q;return;}
-    if(frame.querySelector('iframe'))return;
-    var f=document.createElement('iframe');
-    f.src='play/index.html'+q;f.title='Minesweeper: Strait of Hormuz browser demo';
-    f.setAttribute('allow','fullscreen; autoplay');f.setAttribute('allowfullscreen','');
-    frame.appendChild(f);poster.remove();
-    try{frame.scrollIntoView({block:'center',behavior:'smooth'})}catch(e){}
-  }
-  btn.addEventListener('click',start);
-  if(location.hash==='#play-now')start();
-  // Keep third-party widget work behind an explicit visitor action.
-  var itch=document.querySelector('.itch iframe[data-src]'), loadItch=document.getElementById('loadItch');
-  if(itch && loadItch)loadItch.addEventListener('click',function(){itch.hidden=false;itch.src=itch.dataset.src;loadItch.hidden=true;},{once:true});
   // Request a manual ad only as its slot approaches the visitor. Keep the
   // normal AdSense script/consent integration; avoid competing with the hero.
   function requestAd(a){

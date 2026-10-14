@@ -37,20 +37,6 @@
     }));
     reset.addEventListener('click',()=>{ showBoard(quiz,false);quiz.querySelectorAll('button').forEach(b=>{b.disabled=false;});feedback.textContent='Tap one of the three hidden tiles.';reset.hidden=true;quiz.querySelector('button').focus(); });
   }
-  const youtubeButton=document.querySelector('[data-load-youtube]');
-  if(youtubeButton)youtubeButton.addEventListener('click',()=>{
-    const frame=document.createElement('iframe');frame.src='https://www.youtube-nocookie.com/embed/b3fSf2jTIck?rel=0';frame.title='Minesweeper: Strait of Hormuz on YouTube';frame.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';document.getElementById('youtube-slot').replaceChildren(frame);
-  },{once:true});
-  const embedButton=document.querySelector('[data-load-tiktok]');
-  if (embedButton) embedButton.addEventListener('click',()=>{
-    embedButton.disabled=true;embedButton.textContent='Loading TikTok…';
-    const slot=document.getElementById('tiktok-slot');
-    const quote=document.createElement('blockquote');quote.className='tiktok-embed';quote.cite='https://www.tiktok.com/@ticerapps_dev';quote.dataset.uniqueId='ticerapps_dev';quote.dataset.embedType='creator';quote.dataset.embedFrom='oembed';quote.style.cssText='max-width:720px;min-width:288px;';
-    const section=document.createElement('section'), link=document.createElement('a');link.href=quote.cite;link.textContent='@ticerapps_dev on TikTok';link.target='_blank';link.rel='noopener';section.appendChild(link);quote.appendChild(section);slot.appendChild(quote);
-    const script=document.createElement('script');script.src='https://www.tiktok.com/embed.js';script.async=true;
-    script.onload=()=>{embedButton.hidden=true;};script.onerror=()=>{embedButton.textContent='Preview unavailable. Use the TikTok link below.';};document.body.appendChild(script);
-    setTimeout(()=>{if(!slot.querySelector('iframe')){embedButton.hidden=false;embedButton.textContent='Preview unavailable. Use the TikTok link below.';}},12000);
-  },{once:true});
   // Google exposes this control only when an AdSense privacy message applies.
   window.googlefc=window.googlefc||{};window.googlefc.callbackQueue=window.googlefc.callbackQueue||[];
   window.googlefc.callbackQueue.push({CONSENT_DATA_READY:()=>{
