@@ -280,7 +280,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 
     <aside class="ad" aria-label="Advertisement">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="5131797274" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
     </aside>
 
     <div class="rule"></div>
@@ -328,7 +328,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 
     <aside class="ad" aria-label="Advertisement">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="2505633934" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
     </aside>
 
     <section id="guides">
@@ -375,16 +375,22 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
   // Keep third-party widget work behind an explicit visitor action.
   var itch=document.querySelector('.itch iframe[data-src]'), loadItch=document.getElementById('loadItch');
   if(itch && loadItch)loadItch.addEventListener('click',function(){itch.hidden=false;itch.src=itch.dataset.src;loadItch.hidden=true;},{once:true});
-  // AdSense reserves 280px per slot before it fills. Collapse a slot that has no
-  // ad after 8 s, but keep its width so AdSense can still size a late ad (an EU
-  // visitor answering the consent message, a slow phone), and reopen it the
-  // moment AdSense marks it filled. Unfilled slots are hidden by the CSS rule.
-  document.querySelectorAll('aside.ad').forEach(function(a){
-    var i=a.querySelector('ins.adsbygoogle');if(!i)return;
+  // Request a manual ad only as its slot approaches the visitor. Keep the
+  // normal AdSense script/consent integration; avoid competing with the hero.
+  function requestAd(a){
+    var i=a.querySelector('ins.adsbygoogle');if(!i||a.dataset.requested)return;
+    a.dataset.requested='true';
+    (window.adsbygoogle=window.adsbygoogle||[]).push({});
     var filled=function(){return i.getAttribute('data-ad-status')==='filled';};
     if('MutationObserver' in window)new MutationObserver(function(){if(filled())a.classList.remove('pending');}).observe(i,{attributes:true,attributeFilter:['data-ad-status']});
     setTimeout(function(){if(!filled())a.classList.add('pending');},8000);
-  });
+  }
+  var adSlots=document.querySelectorAll('aside.ad');
+  if('IntersectionObserver' in window){
+    var adsObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){adsObserver.unobserve(entry.target);requestAd(entry.target);}});},{rootMargin:'300px 0px'});
+    adSlots.forEach(function(a){adsObserver.observe(a);});
+  }else adSlots.forEach(requestAd);
+
 })();
 </script>
 </body>

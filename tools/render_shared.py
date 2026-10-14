@@ -33,7 +33,7 @@ def board(p, quiz=False):
             inside=f'<span class="hidden-symbol" aria-hidden="true">?</span><span class="answer-symbol" aria-hidden="true">{answer}</span>'
         if quiz and c=='?':
             out.append(f'<button type="button" class="{cls}" data-quiz-answer="{"safe" if i in p["safe"] else "mine"}" data-original-label="Try {("left","middle","right")[i]} tile" aria-label="Try {("left","middle","right")[i]} tile">{inside}</button>')
-        else: out.append(f'<span class="{cls}" aria-label="{label}" data-original-label="{label}">{inside}</span>')
+        else: out.append(f'<span role="img" class="{cls}" aria-label="{label}" data-original-label="{label}">{inside}</span>')
     return f'<div class="pattern-board" id="{"quiz-board" if quiz else "board-"+p["id"]}" style="--cols:{width}" role="group" aria-label="{html.escape(p["title"])} example">'+''.join(out)+'</div>'
 
 def render_strategy():
