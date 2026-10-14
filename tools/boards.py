@@ -11,7 +11,7 @@ os.chdir(Path(__file__).resolve().parents[1])
 
 SITE = os.getcwd()
 BASE = "https://minesweeperstraitofhormuz.com"
-DATE = "2026-10-14"
+DATE = '2026-10-14T02:19:47-04:00'
 
 DIFFS = [("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard"), ("veteran", "Veteran")]
 
@@ -163,10 +163,10 @@ table.mines td a{text-decoration:none}
          "description": b["desc"], "genre": ["Puzzle", "Minesweeper"],
          "playMode": "SinglePlayer", "applicationCategory": "Game",
          "gamePlatform": ["Web browser", "iOS", "Android"],
-         "author": {"@type": "Organization", "name": "Ticerapps"},
+         "author": {"@type": "Organization", "name": "Ticerapps", "url": "https://ticerapps.github.io/"},
          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
         {"@type": "WebPage", "name": b["title"], "url": url, "description": b["desc"],
-         "datePublished": "2026-10-13", "dateModified": DATE, "isPartOf": {"@type": "WebSite", "name": "Minesweeper: Strait of Hormuz", "url": BASE + "/"}},
+         "datePublished": "2026-10-13T00:39:47-04:00", "dateModified": DATE, "isPartOf": {"@type": "WebSite", "name": "Minesweeper: Strait of Hormuz", "url": BASE + "/"}},
     ]}
     nxt = b["next"]
     html_out = f"""<!doctype html>

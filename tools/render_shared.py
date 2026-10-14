@@ -71,10 +71,15 @@ def apply_chrome():
         if '<!-- shared-footer:start -->' in page:page=re.sub(r'<!-- shared-footer:start -->.*?<!-- shared-footer:end -->',lambda _:footer,page,flags=re.S)
         else:page=re.sub(r'<footer>.*?</footer>',lambda _:footer,page,count=1,flags=re.S)
         page=page.replace('<link rel="stylesheet" href="/assets/refresh.css">','')
+        page=re.sub(r'<!-- shared-style:start -->.*?<!-- shared-style:end -->','',page,flags=re.S)
+        page=re.sub(r'<noscript><link[^>]*fonts.googleapis.com[^>]*></noscript>','',page)
+        page=re.sub(r'<link[^>]*(?:fonts.googleapis.com|fonts.gstatic.com)[^>]*>','',page)
+        style='<!-- shared-style:start --><link rel="preload" href="/assets/fonts/hormuz-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/hormuz-body-medium.woff2" as="font" type="font/woff2" crossorigin><style>'+(ROOT/'assets/refresh.css').read_text()+'</style><!-- shared-style:end -->'
+        page=page.replace('</head>',style+'\n</head>')
         page=page.replace('<script defer src="/assets/site.js"></script>','')
         page=page.replace('<script defer src="/assets/analytics.js"></script>','')
         page=re.sub(r'\n{3,}', '\n\n', page)
-        page=page.replace('</head>','<link rel="stylesheet" href="/assets/refresh.css">\n<script defer src="/assets/site.js"></script>\n<script defer src="/assets/analytics.js"></script>\n</head>')
+        page=page.replace('</head>','<script defer src="/assets/site.js"></script>\n<script defer src="/assets/analytics.js"></script>\n</head>')
         page=re.sub(r'<!-- shared-downloads:start -->.*?<!-- shared-downloads:end -->','',page,flags=re.S)
         if current not in ('/','/privacy/'):
             page=page.replace('</main>','<!-- shared-downloads:start -->'+downloads()+'<!-- shared-downloads:end -->\n</main>')

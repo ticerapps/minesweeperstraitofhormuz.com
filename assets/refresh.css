@@ -1,7 +1,12 @@
+/* Self-hosted OFL font subsets. Optional display prevents late font swaps. */
+@font-face{font-family:"Hormuz Web Display";src:url('/assets/fonts/hormuz-display.woff2') format('woff2');font-weight:600 700;font-display:optional}
+@font-face{font-family:'Hormuz Web Sans';src:url('/assets/fonts/hormuz-body-medium.woff2') format('woff2');font-weight:400 500;font-display:optional}
+@font-face{font-family:'Hormuz Web Sans';src:url('/assets/fonts/hormuz-body-semibold.woff2') format('woff2');font-weight:600 700;font-display:optional}
+@font-face{font-family:'Hormuz Web Mono';src:url('/assets/fonts/hormuz-mono.woff2') format('woff2');font-weight:400 700;font-display:optional}
 /* Shared navigation, landing-page refinements and illustrated field guide. */
-:root{--ink-soft:#abc8bb;--surface:#0b201d;--edge:#315046;--radius:16px}
+:root{--display:"Hormuz Web Display",system-ui,sans-serif;--body:"Hormuz Web Sans","Arial Narrow",system-ui,sans-serif;--mono:"Hormuz Web Mono",ui-monospace,Menlo,monospace;--ink-soft:#abc8bb;--surface:#0b201d;--edge:#315046;--radius:16px}
 html{scroll-padding-top:110px}
-body{background-color:#0b211e;background-image:radial-gradient(ellipse at 85% 5%,#20423666,transparent 55%),linear-gradient(#9fd9c305 1px,transparent 1px),linear-gradient(90deg,#9fd9c305 1px,transparent 1px);background-size:auto,48px 48px,48px 48px}
+body{font-family:var(--body);background-color:#0b211e;background-image:radial-gradient(ellipse at 85% 5%,#20423666,transparent 55%),linear-gradient(#9fd9c305 1px,transparent 1px),linear-gradient(90deg,#9fd9c305 1px,transparent 1px);background-size:auto,48px 48px,48px 48px}
 .wrap{max-width:1140px;padding-inline:24px}
 a,button,summary{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid var(--gold);outline-offset:5px}
