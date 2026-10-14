@@ -197,6 +197,7 @@ section h2{font-size:clamp(30px,5vw,46px);text-transform:uppercase;margin-top:6p
 .boards b{display:block;font-family:var(--display);font-size:18px;color:var(--cream)}
 .boards span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mint)}
 .ad{margin:28px auto 0;max-width:980px}
+.ad.pending{height:0;margin:0 auto;overflow:hidden}
 .ad ins{margin:0 auto}
 .adsbygoogle[data-ad-status="unfilled"]{display:none!important}
 footer{border-top:1px solid var(--line);padding-block:26px 40px;font-size:14px;color:#aebbb4;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -349,8 +350,6 @@ footer a:hover{text-decoration:underline}
   }
   btn.addEventListener('click',start);
   if(location.hash==='#play-now')start();
-  // Until AdSense approves the site its script marks the units done without
-  // requesting an ad, leaving a 280px gap. Collapse slots that never started.
   // The itch.io widget loads only when it nears the viewport. itch rate-limits
   // headless checkers (429), and the widget's scripts stay off the first load.
   var itch=document.querySelector('.itch iframe[data-src]');
@@ -361,7 +360,16 @@ footer a:hover{text-decoration:underline}
       io.observe(itch);
     }else loadItch();
   }
-  setTimeout(function(){document.querySelectorAll('aside.ad').forEach(function(a){var i=a.querySelector('ins.adsbygoogle');if(i&&!i.getAttribute('data-ad-status')&&!i.querySelector('iframe'))a.hidden=true;});},8000);
+  // AdSense reserves 280px per slot before it fills. Collapse a slot that has no
+  // ad after 8 s, but keep its width so AdSense can still size a late ad (an EU
+  // visitor answering the consent message, a slow phone), and reopen it the
+  // moment AdSense marks it filled. Unfilled slots are hidden by the CSS rule.
+  document.querySelectorAll('aside.ad').forEach(function(a){
+    var i=a.querySelector('ins.adsbygoogle');if(!i)return;
+    var filled=function(){return i.getAttribute('data-ad-status')==='filled';};
+    if('MutationObserver' in window)new MutationObserver(function(){if(filled())a.classList.remove('pending');}).observe(i,{attributes:true,attributeFilter:['data-ad-status']});
+    setTimeout(function(){if(!filled())a.classList.add('pending');},8000);
+  });
 })();
 </script>
 </body>
