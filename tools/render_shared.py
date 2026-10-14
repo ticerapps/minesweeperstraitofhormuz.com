@@ -74,7 +74,8 @@ def apply_chrome():
         page=re.sub(r'<!-- shared-style:start -->.*?<!-- shared-style:end -->','',page,flags=re.S)
         page=re.sub(r'<noscript><link[^>]*fonts.googleapis.com[^>]*></noscript>','',page)
         page=re.sub(r'<link[^>]*(?:fonts.googleapis.com|fonts.gstatic.com)[^>]*>','',page)
-        style='<!-- shared-style:start --><link rel="preload" href="/assets/fonts/hormuz-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/hormuz-body-medium.woff2" as="font" type="font/woff2" crossorigin><style>'+(ROOT/'assets/refresh.css').read_text()+'</style><!-- shared-style:end -->'
+        # Set the mobile menu state before first paint, not when deferred JS arrives.
+        style='<!-- shared-style:start --><script>document.documentElement.classList.add("js");</script><link rel="preload" href="/assets/fonts/hormuz-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/hormuz-body-medium.woff2" as="font" type="font/woff2" crossorigin><style>'+(ROOT/'assets/refresh.css').read_text()+'</style><!-- shared-style:end -->'
         page=page.replace('</head>',style+'\n</head>')
         page=page.replace('<script defer src="/assets/site.js"></script>','')
         page=page.replace('<script defer src="/assets/analytics.js"></script>','')
