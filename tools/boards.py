@@ -186,7 +186,8 @@ table.mines td a{text-decoration:none}
 <style>{css}
 {frame_css}
 {extra}</style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-9806107692884322">
+<script defer src="/assets/ads.js"></script>
 <script type="application/ld+json">{json.dumps(ld)}</script>
 </head>
 <body>
