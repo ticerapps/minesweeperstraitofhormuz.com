@@ -50,8 +50,10 @@
       "publisher": { "@type": "Organization", "name": "Ticerapps" },
       "offers": [
         { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://apps.apple.com/app/id6795665498", "category": "iOS" },
-        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz", "category": "Android" }
-      ]
+        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz", "category": "Android" },
+        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://btror.itch.io/minesweeper-strait-of-hormuz", "category": "Web browser" }
+      ],
+      "sameAs": ["https://btror.itch.io/minesweeper-strait-of-hormuz"]
     },
     {
       "@type": "WebPage",
@@ -157,6 +159,9 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05;
 .cta p{margin:0;font-size:19px;max-width:50ch}
 .cta p b{color:var(--gold);font-family:var(--display)}
 .badges{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.itch{grid-column:1/-1;margin-top:6px}
+.itch p{font-size:15px;margin:0 0 10px;color:var(--mint)}
+.itch iframe{display:block;border:0;max-width:100%;border-radius:8px}
 .store-badge{display:inline-flex;align-items:center}
 .store-badge img{display:block;height:50px;width:auto;max-width:none;flex:none}
 .store-badge img[src$=".png"]{width:168px;height:65px;margin:-7px}
@@ -240,6 +245,10 @@ footer a:hover{text-decoration:underline}
           <a class="store-badge" href="https://apps.apple.com/app/id6795665498" rel="noopener"><img src="assets/app-store-badge.svg" width="150" height="50" alt="Download on the App Store"></a>
           <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz" rel="noopener"><img src="assets/google-play-badge.png" width="168" height="65" alt="Get it on Google Play"></a>
         </div>
+        <div class="itch">
+          <p>The browser demo is also on <a href="https://btror.itch.io/minesweeper-strait-of-hormuz" rel="noopener">itch.io</a>.</p>
+          <iframe loading="lazy" title="Minesweeper: Strait of Hormuz on itch.io" src="https://itch.io/embed/5152045?linkback=true&amp;bg_color=0d2623&amp;fg_color=9fd9c3&amp;link_color=e5c46a&amp;border_color=133d36" width="552" height="167"><a href="https://btror.itch.io/minesweeper-strait-of-hormuz">Minesweeper: Strait of Hormuz on itch.io</a></iframe>
+        </div>
       </div>
     </section>
 
@@ -319,7 +328,7 @@ footer a:hover{text-decoration:underline}
 
   <footer>
     <div>© 2026 Ticerapps · Minesweeper: Strait of Hormuz</div>
-    <nav aria-label="Legal"><a href="privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="#play">Play the demo</a></nav>
+    <nav aria-label="Legal"><a href="privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="https://btror.itch.io/minesweeper-strait-of-hormuz" rel="noopener">itch.io</a><a href="#play">Play the demo</a></nav>
   </footer>
 </div>
 <script>
