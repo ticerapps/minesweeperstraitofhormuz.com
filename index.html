@@ -279,7 +279,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     </section>
 
     <aside class="ad" aria-label="Advertisement">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="5131797274" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <ins class="ad-placeholder" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="5131797274" data-ad-format="auto" data-full-width-responsive="true"></ins>
 
     </aside>
 
@@ -327,7 +327,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     </section>
 
     <aside class="ad" aria-label="Advertisement">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="2505633934" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <ins class="ad-placeholder" style="display:block" data-ad-client="ca-pub-9806107692884322" data-ad-slot="2505633934" data-ad-format="auto" data-full-width-responsive="true"></ins>
 
     </aside>
 
@@ -378,8 +378,8 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
   // Request a manual ad only as its slot approaches the visitor. Keep the
   // normal AdSense script/consent integration; avoid competing with the hero.
   function requestAd(a){
-    var i=a.querySelector('ins.adsbygoogle');if(!i||a.dataset.requested)return;
-    a.dataset.requested='true';
+    var i=a.querySelector('ins.ad-placeholder');if(!i||a.dataset.requested)return;
+    a.dataset.requested='true';i.classList.add('adsbygoogle');
     (window.adsbygoogle=window.adsbygoogle||[]).push({});
     var filled=function(){return i.getAttribute('data-ad-status')==='filled';};
     if('MutationObserver' in window)new MutationObserver(function(){if(filled())a.classList.remove('pending');}).observe(i,{attributes:true,attributeFilter:['data-ad-status']});
