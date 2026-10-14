@@ -88,14 +88,15 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 .hud-fig figcaption{font-size:13px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/"}, {"@type": "ListItem", "position": 2, "name": "How to play minesweeper", "item": "https://minesweeperstraitofhormuz.com/how-to-play/"}]}, {"@type": "HowTo", "name": "How to play Minesweeper: Strait of Hormuz", "description": "Classic minesweeper rules on boards shaped by the Strait of Hormuz: read the numbers, flag proven mines, reveal every safe tile.", "step": [{"@type": "HowToStep", "name": "Read the numbers", "text": "Each revealed number counts the mines in the eight tiles touching it, including diagonals."}, {"@type": "HowToStep", "name": "Reveal or flag", "text": "Tap to reveal a tile you have proven safe. Hold a tile, or right-click on desktop, to flag a proven mine."}, {"@type": "HowToStep", "name": "Clear the grid", "text": "Reveal every safe tile to win. Keep flags honest so you can tap a satisfied number to clear its neighbours."}]}, {"@type": "Article", "headline": "How to play Minesweeper: Strait of Hormuz", "author": {"@type": "Organization", "name": "Ticerapps"}, "publisher": {"@type": "Organization", "name": "Ticerapps"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12", "mainEntityOfPage": "https://minesweeperstraitofhormuz.com/how-to-play/", "image": "https://minesweeperstraitofhormuz.com/assets/og-image.jpg"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/"}, {"@type": "ListItem", "position": 2, "name": "How to play minesweeper", "item": "https://minesweeperstraitofhormuz.com/how-to-play/"}]}, {"@type": "HowTo", "name": "How to play Minesweeper: Strait of Hormuz", "description": "Classic minesweeper rules on boards shaped by the Strait of Hormuz: read the numbers, flag proven mines, reveal every safe tile.", "step": [{"@type": "HowToStep", "name": "Read the numbers", "text": "Each revealed number counts the mines in the eight tiles touching it, including diagonals."}, {"@type": "HowToStep", "name": "Reveal or flag", "text": "Tap to reveal a tile you have proven safe. Hold a tile, or right-click on desktop, to flag a proven mine."}, {"@type": "HowToStep", "name": "Clear the grid", "text": "Reveal every safe tile to win. Keep flags honest so you can tap a satisfied number to clear its neighbours."}]}, {"@type": "Article", "headline": "How to play Minesweeper: Strait of Hormuz", "author": {"@type": "Organization", "name": "Ticerapps"}, "publisher": {"@type": "Organization", "name": "Ticerapps"}, "datePublished": "2026-10-12", "dateModified": "2026-10-14", "mainEntityOfPage": "https://minesweeperstraitofhormuz.com/how-to-play/", "image": "https://minesweeperstraitofhormuz.com/assets/og-image.jpg"}]}</script>
+
+<link rel="stylesheet" href="/assets/refresh.css">
+<script defer src="/assets/site.js"></script>
+<script defer src="/assets/analytics.js"></script>
 </head>
 <body>
 <div class="wrap">
-<header class="top">
-  <a class="brand" href="../"><img src="../assets/icon-192.png" width="40" height="40" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
-  <nav class="nav" aria-label="Site"><a href="../#play">Play</a><a href="../#modes">Modes</a><a href="../how-to-play/">How to play</a><a href="../strategy/">Strategy</a><a href="../no-guess-minesweeper/">No-guess</a><a href="../#get">Get the game</a></nav>
-</header>
+<!-- shared-header:start --><header class="top site-header"><a class="brand" href="/" aria-label="Minesweeper: Strait of Hormuz by Ticerapps, home"><img src="/assets/icon-192.png" width="42" height="42" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="/#play">Play</a><a href="/#boards">Boards</a><a href="/how-to-play/" aria-current="page">How to play</a><a href="/strategy/">Patterns</a><a href="/no-guess-minesweeper/">No-guess</a><a class="nav-download" href="/#get">Get the game <span aria-hidden="true">↗</span></a></nav></header><!-- shared-header:end -->
 <main>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › How to play minesweeper</nav>
 <article>
@@ -144,7 +145,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
   <span class="x"></span><span class="s">?</span><span class="x"></span>
   <span class="x"></span><span class="x"></span><span class="x"></span>
 </div>
-<p><strong>A number that touches exactly as many hidden tiles as its value</strong> has found all its mines. Here the middle 1 touches one hidden tile, so that tile is a mine. The 1s either side also touch it, which is why they are 1 and not 0: they are already satisfied. Any other hidden tile touching those 1s is safe.</p>
+<p><strong>After subtracting proven flags, a number that needs exactly as many mines as it has unflagged hidden neighbours</strong> has found all its mines. Here the middle 1 touches one hidden tile, so that tile is a mine. The 1s either side also touch it, which is why they are 1 and not 0: they are already satisfied. Any other hidden tile touching those 1s is safe.</p>
 </div>
 <p>Most of minesweeper is repeating that read: find a number that is already fully explained, flag what it proves, reveal what it clears, and let the new numbers open the next read. The <a href="../strategy/">strategy page</a> covers the named patterns that let you skip steps.</p>
 
@@ -155,9 +156,9 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 <tr><td>Easy</td><td>10%</td><td>12 mines</td><td>89 mines</td></tr>
 <tr><td>Medium</td><td>15%</td><td>17</td><td>134</td></tr>
 <tr><td>Hard</td><td>20%</td><td>23</td><td>178</td></tr>
-<tr><td>Veteran</td><td>25%</td><td>29</td><td>223</td></tr>
+<tr><td>Veteran</td><td>21% cap</td><td>24</td><td>187</td></tr>
 </table></div>
-<p>Veteran at 25% is close to the densest board that can still be generated without guessing. Above that the solver has to search so hard that the first tap reads as a freeze. The <a href="../no-guess-minesweeper/">no-guess page</a> explains what that means.</p>
+<p>These are the browser demo’s current counts. Its no-guess rule caps Veteran at 21% mines, rounded down. This is a generation and difficulty setting, not a mathematical limit. <a href="../no-guess-minesweeper/">How no-guess works</a>.</p>
 
 <h2>What the HUD shows</h2>
 <ul>
@@ -169,13 +170,16 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{text-decoration:none}
 </ul>
 
 <h2>Try it</h2>
-<p>All four strait boards run free in your browser on the <a href="../#play">home page</a>, from 115 tiles to 891, nothing to install. The full game adds classic rectangles, puzzles, daily challenges and ranks, on <a href="https://apps.apple.com/app/id6795665498">the App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz">Google Play</a>.</p>
+<p>All four strait boards run free in your browser on the <a href="../#play">home page</a>, from 115 tiles to 891, nothing to install. The full game adds classic rectangles, puzzles, daily challenges and ranks, on <a data-destination="google_play" href="https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz">Google Play</a>. iPhone and iPad are coming soon.</p>
 <a class="cta" href="../#play">Play a board now</a>
 
 </article>
-<section class="related"><h2>Keep reading</h2><ul><li><a href="../strategy/"><b>Strategy and patterns</b><span>1-1, 1-2-1, corners, counting and strait-specific reads.</span></a></li><li><a href="../no-guess-minesweeper/"><b>No-guess minesweeper</b><span>What the generator certifies, and the three logic tiers.</span></a></li><li><a href="../#play"><b>Play in your browser</b><span>All four strait boards, free, no download.</span></a></li></ul></section>
+<section class="related"><h2>Keep reading</h2><ul><li><a href="../strategy/"><b>Strategy and patterns</b><span>1-1, 1-2-1, corners, counting and strait-specific reads.</span></a></li><li><a href="../no-guess-minesweeper/"><b>No-guess minesweeper</b><span>How logical boards are checked before play.</span></a></li><li><a href="../#play"><b>Play in your browser</b><span>All four strait boards, free, no download.</span></a></li></ul></section>
+
+
+<!-- shared-downloads:start --><section class="download-strip" aria-label="Get the full game"><div><h2>Take the strait with you.</h2><p>44 campaign puzzles, daily competition, ranks and custom loadouts. Play offline, too.</p></div><div><div class="download-actions"><a class="action-primary" data-destination="google_play" href="https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz">Get it on Google Play <span aria-hidden="true">↗</span></a><a class="action-secondary" data-destination="itch" href="https://btror.itch.io/minesweeper-strait-of-hormuz">Play on itch.io</a></div><small>iPhone and iPad: coming soon.</small></div></section><!-- shared-downloads:end -->
 </main>
-<footer><div>© 2026 Ticerapps · Minesweeper: Strait of Hormuz</div><nav aria-label="Legal"><a href="../privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="../">Home</a></nav></footer>
+<!-- shared-footer:start --><footer class="site-footer"><p>© 2026 Ticerapps<br>Minesweeper: Strait of Hormuz</p><nav aria-label="Footer"><a href="/privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">More from Ticerapps</a><a href="mailto:ticerapps@gmail.com">Support</a><a href="https://www.tiktok.com/@ticerapps_dev" data-destination="tiktok">TikTok ↗</a><button type="button" class="text-button" data-analytics-settings hidden>Analytics choices</button><button type="button" class="text-button" data-ad-choices hidden>Ad privacy choices</button></nav></footer><!-- shared-footer:end -->
 </div>
 </body>
 </html>

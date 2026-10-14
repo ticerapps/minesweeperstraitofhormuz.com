@@ -8,7 +8,6 @@
 <title>Privacy Policy – Minesweeper: Strait of Hormuz</title>
 <link rel="canonical" href="https://minesweeperstraitofhormuz.com/privacy/">
 <link rel="icon" href="../assets/icon-192.png" type="image/png">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9806107692884322" crossorigin="anonymous"></script>
 <style>:root{--bg:#0d2623;--bg-deep:#091c19;--panel:#0b1f1b;--line:rgba(236,228,205,.12);--cream:#f1e9d2;--mint:#9fd9c3;--gold:#e5c46a;--flag:#ff6a3d;--alert:#c84b3a;--tile:#0a1e1a;--tile-edge:#1d4a3f;--open:#1f6b45;
   --display:"Oxanium",system-ui,sans-serif;--body:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
 *{box-sizing:border-box}
@@ -103,16 +102,18 @@ section{scroll-margin-top:16px}
 footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-size:14px;color:#aebbb4}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:8px;background:var(--gold);color:#000;padding:8px}
 </style>
+
+<link rel="stylesheet" href="/assets/refresh.css">
+<script defer src="/assets/site.js"></script>
+<script defer src="/assets/analytics.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <main class="wrap" id="main">
-<header class="top">
-  <a class="brand" href="../"><img src="../assets/icon-192.png" width="40" height="40" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
-  <nav class="nav" aria-label="Site"><a href="../#play">Play</a><a href="../#modes">Modes</a><a href="../how-to-play/">How to play</a><a href="../strategy/">Strategy</a><a href="../no-guess-minesweeper/">No-guess</a><a href="../#get">Get the game</a></nav>
-</header>
+<!-- shared-header:start --><header class="top site-header"><a class="brand" href="/" aria-label="Minesweeper: Strait of Hormuz by Ticerapps, home"><img src="/assets/icon-192.png" width="42" height="42" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="/#play">Play</a><a href="/#boards">Boards</a><a href="/how-to-play/">How to play</a><a href="/strategy/">Patterns</a><a href="/no-guess-minesweeper/">No-guess</a><a class="nav-download" href="/#get">Get the game <span aria-hidden="true">↗</span></a></nav></header><!-- shared-header:end -->
 <div class="policy-head"><h1>Privacy Policy</h1>
-      <p class="meta">Effective and last updated: October 11, 2026</p>
+      <p class="meta">Last updated: October 14, 2026</p>
+      <p>This is the game and website policy. The <a href="https://ticerapps.github.io/privacy/">original app-store privacy page</a> remains available.</p>
       <p><strong>Ticerapps</strong> ("we," "us," or "our") provides <strong>Minesweeper: Strait of Hormuz</strong>. This policy covers the Android (including Google Play Games on PC), iOS/iPadOS, and native macOS versions of the game, including test builds, and this website. For privacy requests, contact <a href="mailto:ticerapps@gmail.com">ticerapps@gmail.com</a>.</p></div>
 
     <div class="summary">
@@ -160,8 +161,9 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
       <h2>3. Support and this website</h2>
       <p>If you email us, we receive your email address, message details, and attachments. We use them to respond to support and privacy requests. Gmail processes messages as our email provider. Do not send passwords or payment-card details.</p>
       <p>This website, <strong>minesweeperstraitofhormuz.com</strong>, is hosted on <strong>GitHub Pages</strong>. GitHub processes connection information, including IP addresses, as described in its <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">Privacy Statement</a>. The page loads fonts from <strong>Google Fonts</strong>, which receives your IP address and browser information to serve the font files. External links lead to services with their own policies.</p>
-      <p><strong>Browser demo:</strong> the playable board on this site runs entirely in your browser. It keeps a small save (settings, whether you have seen the tutorial, and an XP tally) in your browser's local storage so it can resume between visits. Nothing from the demo is sent to us. Clearing site data in your browser removes it.</p>
-      <p><strong>Advertising on this website:</strong> we use <strong>Google AdSense</strong> to show ads on this site. Google and its partners use cookies and similar technologies, such as the DoubleClick cookie, to serve ads based on your visits to this and other websites, to measure ad performance, and to prevent fraud. This may involve your IP address, browser and device information, the pages you view, and advertising identifiers. You can opt out of personalised advertising at <a href="https://adssettings.google.com/">Google Ads Settings</a>, and learn how Google uses data from sites that use its services at <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>. Other third-party vendors and ad networks may also serve ads on this site; you can opt out of some of them at <a href="https://www.aboutads.info/choices/">aboutads.info</a>. Where consent is required by law, for example in the European Economic Area, the United Kingdom and Switzerland, a consent message is shown before ad cookies are set, and you can change your choice through the privacy link in the page footer.</p>
+      <p><strong>Browser demo:</strong> the playable board on this site runs entirely in your browser. It keeps a small save (settings, whether you have seen the tutorial, and an XP tally) in your browser’s site storage (IndexedDB) so it can resume between visits. We do not receive its board state or saved progress. Loading the demo still makes ordinary hosting requests, and the website’s optional analytics can count presses of the play button. Clearing site data in your browser removes it.</p>
+      <p><strong>Advertising on this website:</strong> we use <strong>Google AdSense</strong> to show ads on this site. Google and its partners use cookies and similar technologies, such as the DoubleClick cookie, to serve ads based on your visits to this and other websites, to measure ad performance, and to prevent fraud. This may involve your IP address, browser and device information, the pages you view, and advertising identifiers. You can opt out of personalised advertising at <a href="https://adssettings.google.com/">Google Ads Settings</a>, and learn how Google uses data from sites that use its services at <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>. Other third-party vendors and ad networks may also serve ads on this site; you can opt out of some of them at <a href="https://www.aboutads.info/choices/">aboutads.info</a>. Where consent is required by law, for example in the European Economic Area, the United Kingdom and Switzerland, Google’s consent tools govern ad eligibility and choices. When available, use “Ad privacy choices” in the footer to reopen that message.</p>
+      <section id="website-analytics"><h3>Optional website analytics</h3><p>With your permission, we load Google Analytics to measure page visits, browser/device information and clicks to Google Play or itch.io. Google processes connection information, and analytics cookies distinguish visits. We do not send names, email addresses, game-service identities, game progress or scores. We remove query strings and fragments from page addresses sent to Analytics and send only the referring origin.</p><p>Choose “No thanks” to keep our Analytics tag unloaded. Use “Analytics choices” in the footer to change your choice; withdrawing consent stops collection and removes this site’s Analytics cookies. We remember the choice in local storage for up to six months. We respect Global Privacy Control and Do Not Track by keeping these analytics off. This choice is separate from AdSense advertising controls. See <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>.</p></section><h3 id="embedded-media">Optional embedded content</h3><p>The YouTube player connects only when you load the video, using YouTube’s privacy-enhanced embed domain. YouTube then receives connection/device information and may use storage and process viewing activity under <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>. You can open the video directly instead.</p><p>The TikTok preview connects to TikTok only after you press “Load TikTok”. TikTok then receives connection and device information and may use cookies or other storage under <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en">its privacy policy</a>. You can use the ordinary profile link instead. The itch.io download widget is also loaded on request and is covered by <a href="https://itch.io/docs/legal/privacy-policy">itch.io’s privacy policy</a>.</p>
       <p>We do not operate a separate gameplay analytics or crash-reporting service. SDK diagnostics and store/provider reporting are separate from this.</p>
     </section>
 
@@ -215,7 +217,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
       <h2>10. Contact</h2>
       <p><strong>Ticerapps</strong><br>Support and privacy: <a href="mailto:ticerapps@gmail.com">ticerapps@gmail.com</a></p>
     </section>
-    <footer>© 2026 Ticerapps · <a href="/">Home</a></footer>
+    <!-- shared-footer:start --><footer class="site-footer"><p>© 2026 Ticerapps<br>Minesweeper: Strait of Hormuz</p><nav aria-label="Footer"><a href="/privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">More from Ticerapps</a><a href="mailto:ticerapps@gmail.com">Support</a><a href="https://www.tiktok.com/@ticerapps_dev" data-destination="tiktok">TikTok ↗</a><button type="button" class="text-button" data-analytics-settings hidden>Analytics choices</button><button type="button" class="text-button" data-ad-choices hidden>Ad privacy choices</button></nav></footer><!-- shared-footer:end -->
   </main>
 </body>
 </html>
