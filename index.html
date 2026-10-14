@@ -161,7 +161,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05;
 .badges{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
 .itch{grid-column:1/-1;margin-top:6px}
 .itch p{font-size:15px;margin:0 0 10px;color:var(--mint)}
-.itch iframe{display:block;border:0;max-width:100%;border-radius:8px}
+.itch iframe{display:block;border:0;max-width:100%;border-radius:8px;background:var(--panel)}
 .store-badge{display:inline-flex;align-items:center}
 .store-badge img{display:block;height:50px;width:auto;max-width:none;flex:none}
 .store-badge img[src$=".png"]{width:168px;height:65px;margin:-7px}
@@ -247,7 +247,7 @@ footer a:hover{text-decoration:underline}
         </div>
         <div class="itch">
           <p>The browser demo is also on <a href="https://btror.itch.io/minesweeper-strait-of-hormuz" rel="noopener">itch.io</a>.</p>
-          <iframe loading="lazy" title="Minesweeper: Strait of Hormuz on itch.io" src="https://itch.io/embed/5152045?linkback=true&amp;bg_color=0d2623&amp;fg_color=9fd9c3&amp;link_color=e5c46a&amp;border_color=133d36" width="552" height="167"><a href="https://btror.itch.io/minesweeper-strait-of-hormuz">Minesweeper: Strait of Hormuz on itch.io</a></iframe>
+          <iframe title="Minesweeper: Strait of Hormuz on itch.io" data-src="https://itch.io/embed/5152045?linkback=true&amp;bg_color=0d2623&amp;fg_color=9fd9c3&amp;link_color=e5c46a&amp;border_color=133d36" width="552" height="167"><a href="https://btror.itch.io/minesweeper-strait-of-hormuz">Minesweeper: Strait of Hormuz on itch.io</a></iframe>
         </div>
       </div>
     </section>
@@ -351,6 +351,16 @@ footer a:hover{text-decoration:underline}
   if(location.hash==='#play-now')start();
   // Until AdSense approves the site its script marks the units done without
   // requesting an ad, leaving a 280px gap. Collapse slots that never started.
+  // The itch.io widget loads only when it nears the viewport. itch rate-limits
+  // headless checkers (429), and the widget's scripts stay off the first load.
+  var itch=document.querySelector('.itch iframe[data-src]');
+  if(itch){
+    var loadItch=function(){if(!itch.getAttribute('src'))itch.setAttribute('src',itch.getAttribute('data-src'));};
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){for(var k=0;k<es.length;k++){if(es[k].isIntersecting){io.disconnect();loadItch();return;}}},{rootMargin:'300px 0px'});
+      io.observe(itch);
+    }else loadItch();
+  }
   setTimeout(function(){document.querySelectorAll('aside.ad').forEach(function(a){var i=a.querySelector('ins.adsbygoogle');if(i&&!i.getAttribute('data-ad-status')&&!i.querySelector('iframe'))a.hidden=true;});},8000);
 })();
 </script>
