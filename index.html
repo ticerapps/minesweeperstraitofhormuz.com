@@ -270,7 +270,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
         </div>
         <div class="under">
           <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> flag</span><span><b>Right-click</b> flag</span><span><b>Tap a number</b> clear its neighbours when the flags add up</span></div>
-          <a href="https://itch.io/embed-upload/19741392?color=0d2623" target="_blank" rel="noopener">Open full screen ↗</a>
+          <a id="gameFullscreen" href="https://itch.io/embed-upload/19761930?color=0d2623" target="_blank" rel="noopener">Open full screen ↗</a>
         </div>
       </div>
 
@@ -371,7 +371,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     if(frame.querySelector('iframe'))return;
     var game=document.createElement('iframe');
     game.title='Minesweeper: Strait of Hormuz on itch.io';
-    game.src='https://itch.io/embed-upload/19741392?color=0d2623';
+    game.src=document.getElementById('gameFullscreen').href;
     game.allow='fullscreen; autoplay; gamepad';game.allowFullscreen=true;
     frame.appendChild(game);poster.remove();
   }
