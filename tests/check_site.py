@@ -4,8 +4,6 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse, unquote
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'tools'))
-from patterns import verify
 class Page(HTMLParser):
  def __init__(self,text):
   super().__init__(); self.ids=[]; self.links=[]; self.headings=0; self.canonical=[];self.feed(text)
@@ -15,8 +13,14 @@ class Page(HTMLParser):
   if tag=='h1':self.headings+=1
   if tag=='a' and a.get('href'):self.links.append(a['href'])
   if tag=='link' and a.get('rel')=='canonical':self.canonical.append(a.get('href'))
-verify()
-files=[ROOT/'index.html',ROOT/'privacy/index.html',ROOT/'strategy/index.html',ROOT/'how-to-play/index.html',ROOT/'no-guess-minesweeper/index.html',*ROOT.glob('boards/*/index.html')]
+files=[ROOT/'index.html',ROOT/'privacy/index.html',ROOT/'how-to-play/index.html',*ROOT.glob('boards/*/index.html')]
+# The pattern and no-guess guides moved to ticerapps.com on 2026-11-10; their old URLs redirect.
+MOVED={'strategy':'https://ticerapps.com/minesweeper/strategy/','no-guess-minesweeper':'https://ticerapps.com/minesweeper/no-guess/'}
+for folder,target in MOVED.items():
+ text=(ROOT/folder/'index.html').read_text()
+ assert f'<link rel="canonical" href="{target}">' in text, folder
+ assert f'url={target}"' in text and f'location.replace("{target}"' in text, folder
+ assert f'/{folder}/' not in (ROOT/'sitemap.xml').read_text(), folder
 pages={p:Page(p.read_text()) for p in files}
 errors=[]
 for p,page in pages.items():
@@ -43,4 +47,4 @@ assert 'name="robots" content="noindex, follow"' in (ROOT/'play/index.html').rea
 assert '/play/' not in (ROOT/'sitemap.xml').read_text()
 assert 'adsbygoogle.js' not in (ROOT/'privacy/index.html').read_text()
 if errors:print('\n'.join(errors));sys.exit(1)
-print(f'PASS: {len(files)} pages, local links/anchors/assets, structured data, availability, sitemap, and 12 exhaustive puzzle proofs')
+print(f'PASS: {len(files)} pages, local links/anchors/assets, structured data, availability, sitemap, and {len(MOVED)} moved-guide redirects')

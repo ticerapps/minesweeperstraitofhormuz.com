@@ -195,7 +195,7 @@ table.mines td a{text-decoration:none}
 <div class="wrap">
 <header class="top">
   <a class="brand" href="../../"><img src="../../assets/icon-192.png" width="40" height="40" alt=""><span><b>Minesweeper: Strait of Hormuz</b><small>by Ticerapps</small></span></a>
-  <nav class="nav" aria-label="Site"><a href="../../#play">Play</a><a href="../../#modes">Modes</a><a href="../../how-to-play/">How to play</a><a href="../../strategy/">Strategy</a><a href="../../no-guess-minesweeper/">No-guess</a><a href="../../#get">Get the game</a></nav>
+  <nav class="nav" aria-label="Site"><a href="../../#play">Play</a><a href="../../#modes">Modes</a><a href="../../how-to-play/">How to play</a><a href="https://ticerapps.com/minesweeper/strategy/">Strategy</a><a href="https://ticerapps.com/minesweeper/no-guess/">No-guess</a><a href="../../#get">Get the game</a></nav>
 </header>
 <main>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../../#boards">Strait boards</a> › {html.escape(b["name"])}</nav>
@@ -238,12 +238,12 @@ table.mines td a{text-decoration:none}
 
 <h2>How to play {html.escape(b["name"])}</h2>
 <ul>{"".join("<li>%s</li>" % html.escape(p) for p in b["play"])}</ul>
-<p>Every layout is certified by the <a href="../../no-guess-minesweeper/">no-guess generator</a>, so there is always a logical next move. The <a href="../../strategy/">strategy guide</a> covers the patterns, and <a href="../../how-to-play/">how to play</a> covers the controls.</p>
+<p>Every layout is certified by the <a href="https://ticerapps.com/minesweeper/no-guess/">no-guess generator</a>, so there is always a logical next move. The <a href="https://ticerapps.com/minesweeper/strategy/">strategy guide</a> covers the patterns, and <a href="../../how-to-play/">how to play</a> covers the controls.</p>
 
 <h2>The other strait boards</h2>
 <ul class="boards-nav">{boards_nav}</ul>
 </article>
-<section class="related"><h2>Keep reading</h2><ul><li><a href="../{nxt[0]}/"><b>Next board: {html.escape(nxt[1])}</b><span>{html.escape(nxt[2])}</span></a></li><li><a href="../../strategy/"><b>Minesweeper strategy</b><span>The patterns that solve every board.</span></a></li><li><a href="../../#get"><b>Get the full game</b><span>All boards, puzzles and the daily sweep on iOS and Android.</span></a></li></ul></section>
+<section class="related"><h2>Keep reading</h2><ul><li><a href="../{nxt[0]}/"><b>Next board: {html.escape(nxt[1])}</b><span>{html.escape(nxt[2])}</span></a></li><li><a href="https://ticerapps.com/minesweeper/strategy/"><b>Minesweeper strategy</b><span>The patterns that solve every board.</span></a></li><li><a href="../../#get"><b>Get the full game</b><span>All boards, puzzles and the daily sweep on iOS and Android.</span></a></li></ul></section>
 </main>
 <footer><div>© 2026 Ticerapps · Minesweeper: Strait of Hormuz</div><nav aria-label="Legal"><a href="../../privacy/">Privacy policy</a><a href="https://ticerapps.github.io/">Support</a><a href="../../">Home</a></nav></footer>
 </div>
