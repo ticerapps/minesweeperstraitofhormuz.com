@@ -48,7 +48,7 @@
   document.addEventListener('click',event=>{
     if(!accepted||!live)return;
     const link=event.target.closest('a[data-destination]');
-    if(link && ['google_play','itch'].includes(link.dataset.destination))send('event','store_click',{store:link.dataset.destination,page_path:location.pathname});
+    if(link && ['google_play','app_store','itch'].includes(link.dataset.destination))send('event','store_click',{store:link.dataset.destination,page_path:location.pathname});
     const play=event.target.closest('#playBtn');if(play)send('event','demo_start',{page_path:location.pathname});
   });
 })();

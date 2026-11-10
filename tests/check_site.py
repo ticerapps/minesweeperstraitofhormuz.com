@@ -34,8 +34,11 @@ for p,page in pages.items():
   elif target.fragment and local in pages and target.fragment not in pages[local].ids:errors.append(f'{rel}: missing anchor {link}')
  for src in re.findall(r'(?:src|href)="(/assets/[^"?#]+)',p.read_text()):
   if not (ROOT/src.lstrip('/')).exists():errors.append(f'{rel}: missing asset {src}')
- assert 'apps.apple.com/app/id6795665498' not in p.read_text(), rel
+ if rel.as_posix() != 'privacy/index.html':
+  assert 'https://apps.apple.com/app/id6795665498' in page.links, rel
+  assert 'coming soon' not in p.read_text().lower(), rel
  assert '/assets/analytics.js' in p.read_text(), rel
+assert 'app_store' in (ROOT/'assets/analytics.js').read_text()
 assert 'name="robots" content="noindex, follow"' in (ROOT/'play/index.html').read_text()
 assert '/play/' not in (ROOT/'sitemap.xml').read_text()
 assert 'adsbygoogle.js' not in (ROOT/'privacy/index.html').read_text()

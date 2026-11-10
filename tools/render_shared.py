@@ -9,14 +9,16 @@ import re
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from patterns import PATTERNS, verify
+from practice import render_practice
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://minesweeperstraitofhormuz.com"
 PLAY = "https://play.google.com/store/apps/details?id=com.ticer.minesweeperstraitofhormuz"
 ITCH = "https://btror.itch.io/minesweeper-strait-of-hormuz"
+APPLE = "https://apps.apple.com/app/id6795665498"
 
 def downloads():
-    return f'''<section class="download-strip" aria-label="Get the full game"><div><h2>Take the strait with you.</h2><p>44 campaign puzzles, daily competition, ranks and custom loadouts. Play offline, too.</p></div><div><div class="download-actions"><a class="action-primary" data-destination="google_play" href="{PLAY}">Get it on Google Play <span aria-hidden="true">↗</span></a><a class="action-secondary" data-destination="itch" href="{ITCH}">Play on itch.io</a></div><small>iPhone and iPad: coming soon.</small></div></section>'''
+    return f'''<section class="download-strip" aria-label="Get the full game"><div><h2>Take the strait with you.</h2><p>44 campaign puzzles, daily competition, ranks and custom loadouts. Play offline, too.</p></div><div><div class="download-actions"><a class="action-primary" data-destination="app_store" href="{APPLE}">Get it on the App Store <span aria-hidden="true">↗</span></a><a class="action-secondary" data-destination="google_play" href="{PLAY}">Get it on Google Play <span aria-hidden="true">↗</span></a><a class="action-secondary" data-destination="itch" href="{ITCH}">Play on itch.io</a></div><small>Free on iPhone, iPad and Android. Contains ads and optional purchases.</small></div></section>'''
 
 def board(p, quiz=False):
     width=len(p['board'][0]); out=[]
@@ -45,7 +47,9 @@ def render_strategy():
     intro=f'''<article class="visual-guide"><div class="guide-intro"><div><p class="guide-kicker">The field guide / 12 visual reads</p><h1>Minesweeper patterns.<br>See the next move.</h1><p class="lead">Read the numbers. Spot the pattern. Open a tile you can prove is safe.</p><p><a href="/how-to-play/">New to minesweeper? Start with the rules.</a></p></div><section class="quiz" aria-label="Interactive 1–2–1 exercise"><h2>Which tile is safe?</h2>{board(PATTERNS[4],True)}<p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite">Tap one of the three hidden tiles.</p><button type="button" class="text-button" data-quiz-reset hidden>Try again</button><noscript><p>The middle tile is safe. The outer two must be mines.</p></noscript></section></div>
 <div class="pattern-legend"><span>? Unresolved</span><span class="legend-safe">✓ Proven safe</span><span class="legend-mine">⚑ Proven mine</span></div>
 <p class="pattern-note">These are cropped examples: all hidden neighbours of the numbered clues are shown. Hatched cells are outside the example. Flags stand for proven mines. A matching string of numbers is not enough if extra hidden neighbours change the clues.</p>
-<nav class="guide-jump" aria-label="Pattern groups"><a href="#all-mines">Start here</a><a href="#one-one">Edge patterns</a><a href="#one-one-plus">Holes &amp; corners</a><a href="#reduction">Reduce with flags</a><a href="#counting">Endgame</a></nav>
+<nav class="guide-jump" aria-label="Pattern groups"><a href="#chord-practice">Practice chording</a><a href="#flag-reduction">Worked example</a><a href="#all-mines">Basic patterns</a><a href="#one-one">Edge patterns</a><a href="#one-one-plus">Holes &amp; corners</a><a href="#counting">Endgame</a></nav>
+{render_practice()}
+<h2 class="pattern-library-heading">The pattern library</h2>
 <div class="pattern-cards">{''.join(cards)}</div>
 <div class="guide-end"><section><h2>Chord once the flags are proven.</h2><p>When the adjacent flags match a number, tap that number to open its remaining neighbours. Chording trusts your flags; it does not check whether they are correct.</p></section><section><h2>Follow the coastline.</h2><p>Strait boards use the same eight-neighbour rule, including diagonals. Land removes neighbours. Count the actual water tiles before applying an edge pattern.</p></section><section><h2>A zero counter is not proof.</h2><p>The counter subtracts placed flags, including wrong ones. Only treat the remaining tiles as safe when every flag is justified and every mine is accounted for.</p></section><section><h2>Keep learning.</h2><p>Try these reads in the <a href="/#play">free strait demo</a>. For more community terminology and advanced examples, visit <a href="https://minesweeper.online/help/patterns">Minesweeper Online’s pattern reference</a>. Diagrams on this page are our own.</p></section></div>
 </article>'''
@@ -54,7 +58,12 @@ def render_strategy():
         # On subsequent runs replace the generated article as well.
         page=re.sub(r'<article class="visual-guide">.*?</article>',lambda _:intro,page,flags=re.S)
     page=re.sub(r'<title>.*?</title>','<title>Minesweeper Patterns: 12 Visual Examples &amp; Practice | Ticerapps</title>',page)
-    page=re.sub(r'<meta name="description"[^>]*>','<meta name="description" content="Learn minesweeper patterns with 12 illustrated examples: 1-2-1, 1-2-2-1, reduction, corners and mine counting. Reveal solutions and try an interactive puzzle.">',page)
+    description='Learn Minesweeper with 12 visual patterns, interactive chording practice and a step-by-step flag reduction example. Try moves and see why they work.'
+    page=re.sub(r'<meta name="description"[^>]*>',f'<meta name="description" content="{description}">',page)
+    page=re.sub(r'<meta property="og:description"[^>]*>',f'<meta property="og:description" content="{description}">',page)
+    page=re.sub(r'<meta property="og:title"[^>]*>','<meta property="og:title" content="Minesweeper Patterns: Visual Guide &amp; Chording Practice">',page)
+    page=page.replace('<link rel="stylesheet" href="/assets/practice.css">','').replace('<script defer src="/assets/practice.js"></script>','')
+    page=page.replace('</head>','<link rel="stylesheet" href="/assets/practice.css">\n<script defer src="/assets/practice.js"></script>\n</head>')
     page=page.replace('the patterns that solve every board','12 visual patterns and practice').replace('2026-10-12", "mainEntityOfPage"','2026-10-14", "mainEntityOfPage"')
     path.write_text(page)
 
@@ -84,9 +93,8 @@ def apply_chrome():
         page=re.sub(r'<!-- shared-downloads:start -->.*?<!-- shared-downloads:end -->','',page,flags=re.S)
         if current not in ('/','/privacy/'):
             page=page.replace('</main>','<!-- shared-downloads:start -->'+downloads()+'<!-- shared-downloads:end -->\n</main>')
-        # Offers must match actual availability; keep old app/store policy URLs stable.
-        page=re.sub(r'<a[^>]+href="https://apps.apple.com/app/id6795665498"[^>]*>.*?</a>','<span class="coming-soon"><strong>iPhone &amp; iPad</strong>Coming soon on the App Store</span>',page,flags=re.S)
-        for url,destination in ((PLAY,'google_play'),(ITCH,'itch')):
+        # Both mobile listings are live. Preserve links when regenerating pages.
+        for url,destination in ((PLAY,'google_play'),(APPLE,'app_store'),(ITCH,'itch')):
             page=re.sub(r'<a(?![^>]*data-destination)([^>]*href="'+re.escape(url)+r'"[^>]*)>',lambda m:'<a data-destination="'+destination+'"'+m[1]+'>',page)
         path.write_text(page)
 
