@@ -165,14 +165,11 @@ footer a:hover{text-decoration:underline}
 .board-picker h2{font-size:clamp(20px,2.4vw,24px);margin:0}
 .board-picker-head p{margin:0;color:var(--ink-soft);font-size:15px;max-width:62ch}
 .board-picker ul{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.board-picker a{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 16px;border:1px solid var(--edge);border-radius:12px;background:var(--surface);color:var(--cream);text-decoration:none}
-.board-picker a:hover{border-color:var(--mint)}
-.board-picker a.is-current{border-color:var(--gold);background:linear-gradient(160deg,#1d3a2c,var(--surface) 70%)}
+.board-picker li{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 16px;border:1px solid var(--edge);border-radius:12px;background:var(--surface);color:var(--cream);text-decoration:none}
 .board-size{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.board-picker strong{font:600 17px/1.25 var(--display)}
+.board-picker strong{color:var(--cream);font:600 17px/1.25 var(--display)}
 .board-meter{display:block;height:5px;border-radius:3px;background:#9fd9c31a;overflow:hidden;margin-top:auto}
 .board-meter i{display:block;height:100%;width:var(--fill);background:var(--mint);border-radius:3px}
-.board-picker a.is-current .board-meter i{background:var(--gold)}
 .board-meta{font:500 12px/1.3 var(--mono);color:var(--ink-soft)}
 @media(max-width:860px){.board-picker ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 section.devices{padding-block:36px 8px}
@@ -183,8 +180,6 @@ section.devices{padding-block:36px 8px}
 .devices-lead{margin:8px 0 0;color:var(--ink-soft);font-size:16px;max-width:70ch}
 .device-cards{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .device-cards li{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px;background:var(--surface);border:1px solid var(--edge);border-radius:14px}
-.device-cards li.is-you{border-color:var(--gold);background:linear-gradient(160deg,#1d3a2c,var(--surface) 60%)}
-.device-cards .you-pill{position:absolute;top:16px;right:16px;font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#1b230f;background:var(--gold);padding:5px 8px;border-radius:20px}
 .device-icon{color:var(--mint);margin-bottom:4px}
 .device-cards h3{font-size:20px;margin:0}
 .device-cards p{margin:0 0 10px;color:var(--ink-soft);font-size:15px;line-height:1.45}
@@ -311,16 +306,16 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 /* App store buttons in the shared header. Computers see both stores; an iPhone/iPad or an
    Android device sees only its own store, as one "Get the app" button next to the menu. */
 .site-header .brand{order:0}.site-nav{order:1}.header-apps{order:2}.menu-toggle{order:3}
-.header-apps{display:flex;gap:8px}
-.header-app{--btn-bg:#06110f;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid #47675a;border-radius:9px;background:var(--btn-bg);color:var(--cream);text-decoration:none;font:600 14px/1.2 var(--body);white-space:nowrap}
-.header-app:hover{border-color:var(--mint)}.header-app svg{flex:none}
+.header-apps{display:flex;gap:2px}
+.header-app{--btn-bg:var(--bg);display:inline-flex;align-items:center;gap:5px;padding:10px 13px;border-radius:8px;color:var(--ink-soft);text-decoration:none;font:600 13px/1.4 var(--body);white-space:nowrap}
+.header-app:hover{background:#9fd9c310;color:var(--cream)}.header-app svg{flex:none}
 .header-app .lbl-app{display:none}
 .is-ios .header-app[data-store="android"],.is-android .header-app[data-store="ios"]{display:none}
-.is-ios .header-app,.is-android .header-app{--btn-bg:var(--gold);background:var(--gold);border-color:var(--gold);color:#1b230f}
+.is-ios .header-app,.is-android .header-app{--btn-bg:var(--gold);background:var(--gold);color:#1b230f;min-height:40px;padding:0 13px}
 .is-ios .header-app .lbl-store,.is-android .header-app .lbl-store{display:none}
 .is-ios .header-app .lbl-app,.is-android .header-app .lbl-app{display:inline}
-@media(max-width:800px){.header-apps{order:1}.menu-toggle{order:2}.site-nav{order:3}.header-app{padding:0 12px;font-size:13px}}
-@media(max-width:580px){html:not(.is-ios):not(.is-android) .header-app span{display:none}html:not(.is-ios):not(.is-android) .header-app{padding:0 11px}}
+@media(max-width:800px){.header-apps{order:1}.menu-toggle{order:2}.site-nav{order:3}}
+@media(max-width:580px){html:not(.is-ios):not(.is-android) .header-app span{display:none}html:not(.is-ios):not(.is-android) .header-app{padding:10px}}
 /* Ticerapps logo in the shared footer. */
 .footer-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none!important;color:var(--cream)}
 .footer-brand img{width:44px;height:44px;border-radius:11px;flex:none}
@@ -357,12 +352,12 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
           <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> or <b>right-click</b> flag</span><span><b>Tap a number</b> clear around it</span></div>
         </div>
         <div class="board-picker" id="boards">
-          <div class="board-picker-head"><h2>Choose a board</h2><p>Four boards shaped by the Strait of Hormuz, from small to extra large. Each has four difficulties, chosen in the game.</p></div>
+          <div class="board-picker-head"><h2>Four boards</h2><p>Shaped by the Strait of Hormuz, from small to extra large, each with four difficulties. Switch boards and difficulty in the game with Level Select.</p></div>
           <ul>
-          <li><a href="boards/small-hands/" data-board="small-hands" style="--fill:13%"><span class="board-size">Small</span><strong>Small Hands, Small Grid</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">115 tiles · 12–24 mines</span></a></li>
-          <li><a href="boards/sanctions-season/" data-board="sanctions-season" style="--fill:39%"><span class="board-size">Medium</span><strong>Sanctions Season</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">346 tiles · 35–72 mines</span></a></li>
-          <li><a href="boards/no-mans-strait/" data-board="no-mans-strait" style="--fill:69%"><span class="board-size">Large</span><strong>No Man's Strait</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">615 tiles · 62–129 mines</span></a></li>
-          <li><a href="boards/hormuz-closed/" data-board="hormuz-closed" style="--fill:100%"><span class="board-size">Extra large</span><strong>Hormuz Closed</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">891 tiles · 89–187 mines</span></a></li>
+          <li style="--fill:13%"><span class="board-size">Small</span><strong>Small Hands, Small Grid</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">115 tiles · 12–24 mines</span></li>
+          <li style="--fill:39%"><span class="board-size">Medium</span><strong>Sanctions Season</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">346 tiles · 35–72 mines</span></li>
+          <li style="--fill:69%"><span class="board-size">Large</span><strong>No Man's Strait</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">615 tiles · 62–129 mines</span></li>
+          <li style="--fill:100%"><span class="board-size">Extra large</span><strong>Hormuz Closed</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">891 tiles · 89–187 mines</span></li>
           </ul>
         </div>
       </div>
@@ -488,19 +483,6 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     frame.appendChild(game);if(poster)poster.remove();
   }
   btn.addEventListener('click',start);
-  // Board cards load that board in the window; their links stay for search and new tabs.
-  var cards=document.querySelectorAll('.board-picker a[data-board]');
-  function markBoard(slug){cards.forEach(function(c){var on=c.dataset.board===slug;c.classList.toggle('is-current',on);if(on)c.setAttribute('aria-current','true');else c.removeAttribute('aria-current');});}
-  markBoard(pass.get('board')||'small-hands');
-  cards.forEach(function(card){card.addEventListener('click',function(e){
-    if(e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;
-    e.preventDefault();
-    pass=new URLSearchParams();pass.set('board',card.dataset.board);q='?'+pass;fs.href='/play/'+q;
-    markBoard(card.dataset.board);
-    var game=frame.querySelector('iframe');
-    if(game)game.src='/play/'+q;else start();
-    try{frame.scrollIntoView({block:'center',behavior:'smooth'});}catch(err){}
-  });});
   if(location.hash==='#play-now')start();
   // Full screen: enlarge this window where the browser allows it (the game keeps
   // its place); otherwise (iPhone) follow the link to the standalone game page.
@@ -510,10 +492,6 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     e.preventDefault();start();
     try{var p=req.call(frame);if(p&&p.catch)p.catch(function(){location.href=fs.href;});}catch(err){location.href=fs.href;}
   });
-  // Mark the device card that matches this visitor's device.
-  var ua=navigator.userAgent||'',dev=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1)?'ios':/Android/i.test(ua)?'android':'computer';
-  var card=document.querySelector('.device-cards [data-device="'+dev+'"]');
-  if(card){card.classList.add('is-you');var pill=document.createElement('span');pill.className='you-pill';pill.textContent='This device';card.appendChild(pill);}
   // Request a manual ad only as its slot approaches the visitor. Keep the
   // normal AdSense script/consent integration; avoid competing with the game.
   function requestAd(a){

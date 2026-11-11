@@ -86,16 +86,16 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 /* App store buttons in the shared header. Computers see both stores; an iPhone/iPad or an
    Android device sees only its own store, as one "Get the app" button next to the menu. */
 .site-header .brand{order:0}.site-nav{order:1}.header-apps{order:2}.menu-toggle{order:3}
-.header-apps{display:flex;gap:8px}
-.header-app{--btn-bg:#06110f;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid #47675a;border-radius:9px;background:var(--btn-bg);color:var(--cream);text-decoration:none;font:600 14px/1.2 var(--body);white-space:nowrap}
-.header-app:hover{border-color:var(--mint)}.header-app svg{flex:none}
+.header-apps{display:flex;gap:2px}
+.header-app{--btn-bg:var(--bg);display:inline-flex;align-items:center;gap:5px;padding:10px 13px;border-radius:8px;color:var(--ink-soft);text-decoration:none;font:600 13px/1.4 var(--body);white-space:nowrap}
+.header-app:hover{background:#9fd9c310;color:var(--cream)}.header-app svg{flex:none}
 .header-app .lbl-app{display:none}
 .is-ios .header-app[data-store="android"],.is-android .header-app[data-store="ios"]{display:none}
-.is-ios .header-app,.is-android .header-app{--btn-bg:var(--gold);background:var(--gold);border-color:var(--gold);color:#1b230f}
+.is-ios .header-app,.is-android .header-app{--btn-bg:var(--gold);background:var(--gold);color:#1b230f;min-height:40px;padding:0 13px}
 .is-ios .header-app .lbl-store,.is-android .header-app .lbl-store{display:none}
 .is-ios .header-app .lbl-app,.is-android .header-app .lbl-app{display:inline}
-@media(max-width:800px){.header-apps{order:1}.menu-toggle{order:2}.site-nav{order:3}.header-app{padding:0 12px;font-size:13px}}
-@media(max-width:580px){html:not(.is-ios):not(.is-android) .header-app span{display:none}html:not(.is-ios):not(.is-android) .header-app{padding:0 11px}}
+@media(max-width:800px){.header-apps{order:1}.menu-toggle{order:2}.site-nav{order:3}}
+@media(max-width:580px){html:not(.is-ios):not(.is-android) .header-app span{display:none}html:not(.is-ios):not(.is-android) .header-app{padding:10px}}
 /* Ticerapps logo in the shared footer. */
 .footer-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none!important;color:var(--cream)}
 .footer-brand img{width:44px;height:44px;border-radius:11px;flex:none}
