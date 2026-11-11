@@ -212,7 +212,8 @@ section.devices{padding-block:36px 8px}
 .tips li{counter-increment:tip;position:relative;padding-left:46px;color:#d5ddd8;font-size:17px;line-height:1.5}
 .tips li::before{content:counter(tip);position:absolute;left:0;top:2px;width:30px;height:30px;border-radius:7px;background:#12342a;border:1px solid #234c3e;color:var(--gold);font:600 16px/28px var(--mono);text-align:center}
 .tips b{display:block;color:var(--cream)}
-#tips .guides{margin-top:24px}
+#tips .guides{margin-top:16px}
+.board-guides{margin:22px 24px 0;color:var(--ink-soft);font-size:16px}
 @media(max-width:860px){.device-cards{grid-template-columns:1fr}.device-cards li{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start}.device-icon{grid-row:1/4}.device-cards h3,.device-cards p,.device-cards .store-badge,.device-cards .itch-link{grid-column:2;justify-self:start}}
 @media(max-width:800px){.rules-grid,.tips{grid-template-columns:1fr}.rules figure{flex-direction:row;align-items:center;text-align:left}}
 @media(max-width:580px){.window-bar{padding:10px 10px 10px 14px}.window-bar h1{font-size:15px}.window-bar h1 span{display:block;margin:2px 0 0}.fs-link{padding:0 10px;font-size:13px}.rules summary{padding:16px 18px}.rules>:not(summary){margin-inline:16px}.rules figure{flex-direction:column}.device-cards li{padding:16px}}
@@ -440,6 +441,7 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
           <li><b>Use the narrow water.</b> Tiles next to land have fewer neighbours, so their numbers say more. Channels and coves are often where a board breaks open.</li>
           <li><b>Stuck? Look somewhere else.</b> Every board here is no-guess: there is always a tile you can work out without guessing, somewhere on the board.</li>
         </ol>
+        <p class="board-guides">Each board also has its own page with its shape, mine counts and tips: <a href="boards/small-hands/">Small Hands</a>, <a href="boards/sanctions-season/">Sanctions Season</a>, <a href="boards/no-mans-strait/">No Man's Strait</a> and <a href="boards/hormuz-closed/">Hormuz Closed</a>.</p>
         <div class="feat guides">
           <a href="https://ticerapps.com/minesweeper/strategy/"><b>12 minesweeper patterns</b>The 1-1, 1-2-1, 1-2-2-1 and more, with practice boards. On ticerapps.com.</a>
           <a href="https://ticerapps.com/minesweeper/no-guess/"><b>No-guess minesweeper</b>What no-guess means and how these boards are checked. On ticerapps.com.</a>

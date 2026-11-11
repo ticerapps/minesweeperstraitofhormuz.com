@@ -137,6 +137,23 @@ table.mines td a{text-decoration:none}
 <script defer src="/assets/ads.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://minesweeperstraitofhormuz.com/"}, {"@type": "ListItem", "position": 2, "name": "Strait boards", "item": "https://minesweeperstraitofhormuz.com/#boards"}, {"@type": "ListItem", "position": 3, "name": "Sanctions Season", "item": "https://minesweeperstraitofhormuz.com/boards/sanctions-season/"}]}, {"@type": "VideoGame", "name": "Minesweeper: Strait of Hormuz \u2013 Sanctions Season", "url": "https://minesweeperstraitofhormuz.com/boards/sanctions-season/", "image": "https://minesweeperstraitofhormuz.com/assets/board-sanctions-season.webp", "description": "Play Sanctions Season free in your browser: a 346-tile minesweeper board shaped by the Strait of Hormuz, 35 to 72 mines, no-guess layouts, first tap always safe.", "genre": ["Puzzle", "Minesweeper"], "playMode": "SinglePlayer", "applicationCategory": "Game", "gamePlatform": ["Web browser", "iOS", "Android"], "author": {"@type": "Organization", "name": "Ticerapps"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "WebPage", "name": "Sanctions Season \u2013 Mid-Size Strait of Hormuz Minesweeper Board", "url": "https://minesweeperstraitofhormuz.com/boards/sanctions-season/", "description": "Play Sanctions Season free in your browser: a 346-tile minesweeper board shaped by the Strait of Hormuz, 35 to 72 mines, no-guess layouts, first tap always safe.", "datePublished": "2026-10-13", "dateModified": "2026-10-14", "isPartOf": {"@type": "WebSite", "name": "Minesweeper: Strait of Hormuz", "url": "https://minesweeperstraitofhormuz.com/"}}]}</script>
 
+<style id="window-styles">
+/* Board pages share the homepage's game window (2026-11-10). */
+.window-bar{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;padding:12px 14px 12px 18px;background:var(--surface);border:1px solid var(--edge);border-bottom:0;border-radius:8px 8px 0 0}
+.window-bar h1{font:600 17px/1.3 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--cream);margin:0}
+.window-bar h1 span{display:inline;margin-left:8px;font:500 12px/1.3 var(--mono);text-transform:none;letter-spacing:.04em;color:var(--ink-soft)}
+.board-window .frame{border-radius:0 0 8px 8px;aspect-ratio:750/470}
+.board-window .poster .play{font-size:22px;padding:20px 40px}
+.frame:fullscreen{border-radius:0}
+.fs-link{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 13px;border:1px solid var(--edge);border-radius:8px;background:#0d2a24;color:var(--cream)!important;text-decoration:none;font:600 14px var(--body)}
+.fs-link:hover{border-color:var(--mint)}
+.board-window .under{margin-top:10px;padding-inline:10px}
+.board-window{margin-top:8px}
+.board-window .bracket i::after{right:0;bottom:0;left:auto;top:auto;border-left:0;border-top:0}
+.board-about{margin-top:26px}
+@media(max-width:580px){.window-bar{padding:10px 10px 10px 14px}.window-bar h1{font-size:15px}.window-bar h1 span{display:block;margin:2px 0 0}.fs-link{padding:0 10px;font-size:13px}}
+</style>
+
 <!-- shared-style:start --><script>(function(d,u){d.classList.add("js");if(/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1))d.classList.add("is-ios");else if(/Android/i.test(u))d.classList.add("is-android");})(document.documentElement,navigator.userAgent);</script><link rel="preload" href="/assets/fonts/hormuz-display.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/hormuz-body-medium.woff2" as="font" type="font/woff2" crossorigin><style>/* Self-hosted OFL font subsets. Optional display prevents late font swaps. */
 @font-face{font-family:"Hormuz Web Display";src:url('/assets/fonts/hormuz-display.woff2') format('woff2');font-weight:600 700;font-display:optional}
 @font-face{font-family:'Hormuz Web Sans';src:url('/assets/fonts/hormuz-body-medium.woff2') format('woff2');font-weight:400 500;font-display:optional}
@@ -254,9 +271,25 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 <main>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> › <a href="../../#boards">Strait boards</a> › Sanctions Season</nav>
 <article>
-<div class="board-head">
-  <div><p class="eyebrow">The mid-size strait board · 346 tiles · Free in your browser</p><h1>Sanctions Season</h1></div>
+
+<div class="game board-window" id="play">
+  <div class="bracket"><i></i>
+    <div class="window-bar">
+      <h1>Sanctions Season <span>The mid-size strait board · 346 tiles · free in your browser</span></h1>
+      <a class="fs-link" id="gameFullscreen" href="../../play/?board=sanctions-season"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</a>
+    </div>
+    <div class="frame" id="frame">
+      <div class="poster" id="poster">
+        <button class="play" id="playBtn" type="button">Play now</button>
+        <noscript><p>The game needs JavaScript. <a href="../../play/?board=sanctions-season">Open the game page</a>.</p></noscript>
+      </div>
+    </div>
+  </div>
+  <div class="under">
+    <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> flag</span><span><b>Right-click</b> flag</span><span><b>Tap a number</b> clear its neighbours when the flags add up</span></div>
+  </div>
 </div>
+<div class="board-about">
 <p class="lead">The second board, three times the size of Small Hands. A rounded basin on the Gulf of Oman side of the peninsula, off the eastern coast, with enough open water that more than one front is open at once.</p>
 <div class="stats">
   <div><b>346</b><span>tiles</span></div>
@@ -264,30 +297,13 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
   <div><b>2×</b><span>XP scale</span></div>
   <div><b>100%</b><span>no-guess layouts</span></div>
 </div>
-
-<div class="game" id="play">
-  <h2 class="h2-inline">Play Sanctions Season online</h2>
-  <div class="bracket"><i></i>
-    <div class="frame" id="frame">
-      <div class="poster" id="poster">
-        <h2>Sanctions Season</h2>
-        <p>The real game, running in your browser. 346 tiles, 35 mines on Easy, first tap always safe. Tap to reveal, hold to flag.</p>
-        <button class="play" id="playBtn" type="button">Play now</button>
-        <small>Loads about 35 MB the first time. On phones it opens full screen.</small>
-      </div>
-    </div>
-  </div>
-  <div class="under">
-    <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> flag</span><span><b>Right-click</b> flag</span><span><b>Tap a number</b> clear its neighbours when the flags add up</span></div>
-    <a href="../../play/?board=sanctions-season" target="_blank" rel="noopener">Open full screen ↗</a>
-  </div>
 </div>
 
 <h2>The shape of the board</h2>
 <p>Sanctions Season is one connected body of water hugging the coast south-east of the headland. The seaward edge is open and round; the landward edge follows the shoreline and breaks into coves two or three tiles wide. Those coves behave like corridors: a number sitting in one sees very few tiles, and solving the mouth usually unlocks the cove behind it.</p><p>It is the board where the 1-2-1 and 1-2-2-1 patterns start to appear on open water, not just along the edge. Expect to flag in batches rather than one at a time.</p>
 
 <h2>Mines by difficulty</h2>
-<p>Difficulty sets the mine density. The exact count is fixed per board, so a Sanctions Season game on Hard always has 69 mines. The in-game MENU switches difficulty at any time; the links below open the board at that tier directly.</p>
+<p>Difficulty sets the mine density. The exact count is fixed per board, so a Sanctions Season game on Hard always has 69 mines. The game's Level Select switches board and difficulty at any time; the links below open the board at that tier directly.</p>
 <table class="mines"><thead><tr><th scope="col">Difficulty</th><th scope="col">Density</th><th scope="col">Mines</th><th scope="col">Link</th></tr></thead><tbody><tr><th scope="row">Easy</th><td>10.1%</td><td>35 mines</td><td><a href="../../play/?board=sanctions-season&amp;difficulty=easy">Play Sanctions Season easy ↗</a></td></tr><tr><th scope="row">Medium</th><td>15.0%</td><td>52 mines</td><td><a href="../../play/?board=sanctions-season&amp;difficulty=medium">Play Sanctions Season medium ↗</a></td></tr><tr><th scope="row">Hard</th><td>19.9%</td><td>69 mines</td><td><a href="../../play/?board=sanctions-season&amp;difficulty=hard">Play Sanctions Season hard ↗</a></td></tr><tr><th scope="row">Veteran</th><td>20.8%</td><td>72 mines</td><td><a href="../../play/?board=sanctions-season&amp;difficulty=veteran">Play Sanctions Season veteran ↗</a></td></tr></tbody></table>
 
 <h2>How to play Sanctions Season</h2>
@@ -306,19 +322,27 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
 </div>
 <script>
 (function(){
-  var btn=document.getElementById('playBtn'),frame=document.getElementById('frame'),poster=document.getElementById('poster');
-  var q='?board=sanctions-season'+(/[?&]difficulty=(easy|medium|hard|veteran)/.test(location.search)?'&difficulty='+location.search.match(/difficulty=(easy|medium|hard|veteran)/)[1]:'');
+  var btn=document.getElementById('playBtn'),frame=document.getElementById('frame'),poster=document.getElementById('poster'),fs=document.getElementById('gameFullscreen');
+  var d=location.search.match(/[?&]difficulty=(easy|medium|hard|veteran)/);
+  var q='?board=sanctions-season'+(d?'&difficulty='+d[1]:'');
+  fs.href='../../play/'+q;
   function start(){
-    if(window.innerWidth<700||window.matchMedia('(pointer: coarse)').matches&&window.innerWidth<900){location.href='../../play/'+q;return;}
     if(frame.querySelector('iframe'))return;
     var f=document.createElement('iframe');
-    f.src='../../play/index.html'+q;f.title='Minesweeper: Strait of Hormuz, Sanctions Season';
-    f.setAttribute('allow','fullscreen; autoplay');f.setAttribute('allowfullscreen','');
-    frame.appendChild(f);poster.remove();
-    try{frame.scrollIntoView({block:'center',behavior:'smooth'})}catch(e){}
+    f.src='../../play/'+q;f.title='Minesweeper: Strait of Hormuz, Sanctions Season';
+    f.setAttribute('allow','fullscreen; autoplay; gamepad');f.setAttribute('allowfullscreen','');
+    f.addEventListener('load',function(){try{f.contentWindow.focus();}catch(e){}});
+    frame.appendChild(f);if(poster)poster.remove();
   }
   btn.addEventListener('click',start);
   if(location.hash==='#play-now')start();
+  // Full screen enlarges the window where the browser allows it; iPhone opens the game page.
+  fs.addEventListener('click',function(e){
+    var req=frame.requestFullscreen||frame.webkitRequestFullscreen;
+    if(!req)return;
+    e.preventDefault();start();
+    try{var p=req.call(frame);if(p&&p.catch)p.catch(function(){location.href=fs.href;});}catch(err){location.href=fs.href;}
+  });
 })();
 </script>
 </body>
