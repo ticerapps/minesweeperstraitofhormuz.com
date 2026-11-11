@@ -160,8 +160,21 @@ footer a:hover{text-decoration:underline}
 .fs-link{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 13px;border:1px solid var(--edge);border-radius:8px;background:#0d2a24;color:var(--cream)!important;text-decoration:none;font:600 14px var(--body)}
 .fs-link:hover{border-color:var(--mint)}
 .play-hero .under{margin-top:10px;padding-inline:10px;gap:6px 24px}
-.board-links{margin:0;font:500 13px/1.6 var(--mono);color:var(--ink-soft)}
-.board-links a{color:var(--cream)}
+.board-picker{margin-top:22px}
+.board-picker-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 24px;flex-wrap:wrap}
+.board-picker h2{font-size:clamp(20px,2.4vw,24px);margin:0}
+.board-picker-head p{margin:0;color:var(--ink-soft);font-size:15px;max-width:62ch}
+.board-picker ul{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.board-picker a{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 16px;border:1px solid var(--edge);border-radius:12px;background:var(--surface);color:var(--cream);text-decoration:none}
+.board-picker a:hover{border-color:var(--mint)}
+.board-picker a.is-current{border-color:var(--gold);background:linear-gradient(160deg,#1d3a2c,var(--surface) 70%)}
+.board-size{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.board-picker strong{font:600 17px/1.25 var(--display)}
+.board-meter{display:block;height:5px;border-radius:3px;background:#9fd9c31a;overflow:hidden;margin-top:auto}
+.board-meter i{display:block;height:100%;width:var(--fill);background:var(--mint);border-radius:3px}
+.board-picker a.is-current .board-meter i{background:var(--gold)}
+.board-meta{font:500 12px/1.3 var(--mono);color:var(--ink-soft)}
+@media(max-width:860px){.board-picker ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 section.devices{padding-block:36px 8px}
 .devices h2{font-size:clamp(24px,3vw,30px);margin:0}
 .app-extras{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;gap:8px}
@@ -342,7 +355,15 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
         </div>
         <div class="under">
           <div class="legend"><span><b>Tap</b> reveal</span><span><b>Hold</b> or <b>right-click</b> flag</span><span><b>Tap a number</b> clear around it</span></div>
-          <p class="board-links" id="boards">Boards: <a href="boards/small-hands/">Small Hands</a> · <a href="boards/sanctions-season/">Sanctions Season</a> · <a href="boards/no-mans-strait/">No Man's Strait</a> · <a href="boards/hormuz-closed/">Hormuz Closed</a></p>
+        </div>
+        <div class="board-picker" id="boards">
+          <div class="board-picker-head"><h2>Choose a board</h2><p>Four boards shaped by the Strait of Hormuz, from small to extra large. Each has four difficulties, chosen in the game.</p></div>
+          <ul>
+          <li><a href="boards/small-hands/" data-board="small-hands" style="--fill:13%"><span class="board-size">Small</span><strong>Small Hands, Small Grid</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">115 tiles · 12–24 mines</span></a></li>
+          <li><a href="boards/sanctions-season/" data-board="sanctions-season" style="--fill:39%"><span class="board-size">Medium</span><strong>Sanctions Season</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">346 tiles · 35–72 mines</span></a></li>
+          <li><a href="boards/no-mans-strait/" data-board="no-mans-strait" style="--fill:69%"><span class="board-size">Large</span><strong>No Man's Strait</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">615 tiles · 62–129 mines</span></a></li>
+          <li><a href="boards/hormuz-closed/" data-board="hormuz-closed" style="--fill:100%"><span class="board-size">Extra large</span><strong>Hormuz Closed</strong><span class="board-meter" aria-hidden="true"><i></i></span><span class="board-meta">891 tiles · 89–187 mines</span></a></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -467,6 +488,19 @@ button{font:inherit;cursor:pointer}button:disabled{cursor:default}
     frame.appendChild(game);if(poster)poster.remove();
   }
   btn.addEventListener('click',start);
+  // Board cards load that board in the window; their links stay for search and new tabs.
+  var cards=document.querySelectorAll('.board-picker a[data-board]');
+  function markBoard(slug){cards.forEach(function(c){var on=c.dataset.board===slug;c.classList.toggle('is-current',on);if(on)c.setAttribute('aria-current','true');else c.removeAttribute('aria-current');});}
+  markBoard(pass.get('board')||'small-hands');
+  cards.forEach(function(card){card.addEventListener('click',function(e){
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;
+    e.preventDefault();
+    pass=new URLSearchParams();pass.set('board',card.dataset.board);q='?'+pass;fs.href='/play/'+q;
+    markBoard(card.dataset.board);
+    var game=frame.querySelector('iframe');
+    if(game)game.src='/play/'+q;else start();
+    try{frame.scrollIntoView({block:'center',behavior:'smooth'});}catch(err){}
+  });});
   if(location.hash==='#play-now')start();
   // Full screen: enlarge this window where the browser allows it (the game keeps
   // its place); otherwise (iPhone) follow the link to the standalone game page.
