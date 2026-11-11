@@ -89,6 +89,25 @@ body {
 	text-align: center;
 	z-index: 1;
 }
+
+/* Static control diagrams remain readable while the game downloads. */
+#status { visibility:visible; background:#d40329; color:#fff4d8; font-family:Arial,sans-serif; gap:16px; padding:18px; box-sizing:border-box; }
+#status .brand { position:relative; width:min(100%,500px); height:clamp(125px,36vh,220px); flex-shrink:0; overflow:hidden; }
+#status #status-splash { position:absolute; width:500px; height:500px; max-width:none; max-height:none; left:50%; right:auto; top:-130px; bottom:auto; margin:0; transform:translateX(-50%); object-fit:contain; }
+.control-guide { display:grid; grid-template-columns:1fr 1fr; gap:14px; width:min(520px,100%); }
+.control-card { background:#960d29; border:1px solid #f18487; border-radius:14px; padding:14px 12px 16px; text-align:center; }
+.control-card svg { display:block; width:100%; height:86px; margin:0 auto 8px; }
+.control-card strong { display:block; font-size:23px; letter-spacing:.08em; margin-bottom:6px; }
+.control-card span { display:block; font-size:13px; font-weight:700; color:#ffe2d0; }
+.load-meter { width:min(260px,65%); text-align:center; font-size:10px; font-weight:700; letter-spacing:.14em; }
+#status #status-progress { position:static; width:100%; height:5px; margin:0 0 8px; border:0; border-radius:5px; overflow:hidden; appearance:none; background:#920e27; accent-color:#fff0c9; }
+#status-progress::-webkit-progress-bar { background:#920e27; }
+#status-progress::-webkit-progress-value { background:#fff0c9; }
+#status-progress::-moz-progress-bar { background:#fff0c9; }
+#status-notice { flex-shrink:0; font-size:14px; max-width:520px; }
+@media(max-height:430px) { #status{gap:10px;padding:10px;} #status .brand{height:110px;} #status #status-splash{width:340px;height:340px;top:-88px;} .control-card{padding:8px 12px;} .control-card svg{height:56px;margin-bottom:4px;} .control-card strong{font-size:18px;margin-bottom:3px;} .control-card span{font-size:11px;} }
+@media(max-width:380px) { .control-guide{gap:8px;} .control-card{padding:10px 5px;} .control-card span{font-size:11px;} }
+
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
@@ -104,16 +123,21 @@ body {
 		</noscript>
 
 		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
+<div class="brand"><img id="status-splash" src="index.png" alt="Minesweeper: Strait of Hormuz"></div>
+<div class="control-guide" aria-label="How to play">
+<div class="control-card"><svg viewBox="0 0 190 100" aria-hidden="true"><rect x="12" y="12" width="47" height="74" rx="23" fill="none" stroke="#fff4d8" stroke-width="3"/><path d="M35 14v30H14v-9q0-20 21-21" fill="#f2d36b"/><path d="M36 13v32M14 45h43" stroke="#fff4d8" stroke-width="3"/><path d="M74 50h28m-8-8 8 8-8 8" fill="none" stroke="#fff4d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="120" y="16" width="66" height="66" rx="5" fill="#123b2f" stroke="#75e5bb" stroke-width="3"/><text x="153" y="65" text-anchor="middle" fill="#a3f1d3" font-size="47" font-family="Arial,sans-serif" font-weight="700">1</text><path d="m115 79 6 17 4-8 9-3z" fill="#fff4d8"/></svg><strong>SCAN</strong><span>Left-click or tap</span></div>
+<div class="control-card"><svg viewBox="0 0 190 100" aria-hidden="true"><rect x="12" y="12" width="47" height="74" rx="23" fill="none" stroke="#fff4d8" stroke-width="3"/><path d="M37 14v30h20v-9q0-20-20-21" fill="#f2d36b"/><path d="M36 13v32M14 45h43" stroke="#fff4d8" stroke-width="3"/><path d="M74 50h28m-8-8 8 8-8 8" fill="none" stroke="#fff4d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="120" y="16" width="66" height="66" rx="5" fill="#123b2f" stroke="#75e5bb" stroke-width="3"/><path d="M145 65V30l28 11-28 10" fill="#f2d36b" stroke="#f2d36b" stroke-width="3" stroke-linejoin="round"/><path d="M137 68h17" stroke="#fff4d8" stroke-width="3" stroke-linecap="round"/></svg><strong>FLAG</strong><span>Hold or right-click</span></div>
+</div>
+<div class="load-meter"><progress id="status-progress" aria-label="Loading game"></progress><span>LOADING YOUR GRID</span></div>
 			<div id="status-notice"></div>
 		</div>
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":24859956,"index.wasm":39509339},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":21902468,"index.wasm":39509339},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
+document.getElementById('canvas').addEventListener('contextmenu', event => event.preventDefault());
 
 (function () {
 	const statusOverlay = document.getElementById('status');
@@ -211,8 +235,21 @@ const engine = new Engine(GODOT_CONFIG);
 			},
 		}).then(() => {
 			setStatusMode('hidden');
+			keepSaveData();
 		}, displayFailureNotice);
 	}
+
+// The game keeps best times and wins in this browser (IndexedDB, via Godot's user://).
+// Ask the browser to keep that storage rather than clear it when space runs low.
+// Chrome, Edge and Safari decide silently; Firefox would show a permission prompt,
+// so it is skipped there (its default storage is rarely cleared).
+function keepSaveData() {
+	try {
+		if (/Firefox\//.test(navigator.userAgent)) return;
+		if (!navigator.storage || !navigator.storage.persist) return;
+		navigator.storage.persisted().then((kept) => kept || navigator.storage.persist()).catch(() => {});
+	} catch (e) { /* storage persistence is optional */ }
+}
 }());
 		</script>
 	</body>
